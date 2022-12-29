@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */; };
+		BD305DB6295CBC8C001203EE /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */; };
+		BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DAF295CBC8C001203EE /* Assets.xcassets */; };
+		BD305DB8295CBC8C001203EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */; };
+		BD305DB9295CBC8C001203EE /* AppSecrets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = BD305DB3295CBC8C001203EE /* AppSecrets.stencil */; };
+		BD305DBA295CBC8C001203EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DB4295CBC8C001203EE /* ContentView.swift */; };
+		BD305DBC295D8F11001203EE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BD305DBB295D8F11001203EE /* README.md */; };
 		BD457B1A295C3E710000EE19 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */; };
 		BD457B1C295C3E710000EE19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD457B1B295C3E710000EE19 /* ContentView.swift */; };
 		BD457B1E295C3E720000EE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD457B1D295C3E720000EE19 /* Assets.xcassets */; };
@@ -14,6 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD305DA8295CAD00001203EE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
+		BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
+		BD305DAF295CBC8C001203EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD305DB3295CBC8C001203EE /* AppSecrets.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppSecrets.stencil; sourceTree = "<group>"; };
+		BD305DB4295CBC8C001203EE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD305DBB295D8F11001203EE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BD457B16295C3E710000EE19 /* IntegrationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegrationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
 		BD457B1B295C3E710000EE19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,9 +47,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD305DAB295CBC8C001203EE /* IntegrationExample */ = {
+			isa = PBXGroup;
+			children = (
+				BD305DAC295CBC8C001203EE /* Generated */,
+				BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */,
+				BD305DAF295CBC8C001203EE /* Assets.xcassets */,
+				BD305DB0295CBC8C001203EE /* Preview Content */,
+				BD305DB2295CBC8C001203EE /* Templates */,
+				BD305DB4295CBC8C001203EE /* ContentView.swift */,
+			);
+			name = IntegrationExample;
+			sourceTree = "<group>";
+		};
+		BD305DAC295CBC8C001203EE /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		BD305DB0295CBC8C001203EE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD305DB2295CBC8C001203EE /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				BD305DB3295CBC8C001203EE /* AppSecrets.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		BD457B0D295C3E710000EE19 = {
 			isa = PBXGroup;
 			children = (
+				BD305DBB295D8F11001203EE /* README.md */,
+				BD305DA8295CAD00001203EE /* Secrets.xcconfig */,
 				BD457B18295C3E710000EE19 /* IntegrationExample */,
 				BD457B17295C3E710000EE19 /* Products */,
 			);
@@ -51,6 +105,7 @@
 		BD457B18295C3E710000EE19 /* IntegrationExample */ = {
 			isa = PBXGroup;
 			children = (
+				BD305DAB295CBC8C001203EE /* IntegrationExample */,
 				BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */,
 				BD457B1B295C3E710000EE19 /* ContentView.swift */,
 				BD457B1D295C3E720000EE19 /* Assets.xcassets */,
@@ -74,6 +129,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD457B24295C3E720000EE19 /* Build configuration list for PBXNativeTarget "IntegrationExample" */;
 			buildPhases = (
+				BD305DA7295CAC65001203EE /* Generate Secrets */,
 				BD457B12295C3E710000EE19 /* Sources */,
 				BD457B13295C3E710000EE19 /* Frameworks */,
 				BD457B14295C3E710000EE19 /* Resources */,
@@ -83,6 +139,8 @@
 			dependencies = (
 			);
 			name = IntegrationExample;
+			packageProductDependencies = (
+			);
 			productName = IntegrationExample;
 			productReference = BD457B16295C3E710000EE19 /* IntegrationExample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +169,8 @@
 				Base,
 			);
 			mainGroup = BD457B0D295C3E710000EE19;
+			packageReferences = (
+			);
 			productRefGroup = BD457B17295C3E710000EE19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,12 +185,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD305DBC295D8F11001203EE /* README.md in Resources */,
+				BD305DB8295CBC8C001203EE /* Preview Assets.xcassets in Resources */,
 				BD457B21295C3E720000EE19 /* Preview Assets.xcassets in Resources */,
+				BD305DB9295CBC8C001203EE /* AppSecrets.stencil in Resources */,
+				BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */,
 				BD457B1E295C3E720000EE19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD305DA7295CAC65001203EE /* Generate Secrets */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Secrets";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nmimi_client_secret=$CI_MIMI_CLIENT_SECRET\nif [ \"$mimi_client_secret\" == \"\" ]; then\n    mimi_client_secret=$MIMI_CLIENT_SECRET\nfi\n\n\nsourcery \\\n--sources $PROJECT_DIR/IntegrationExample \\\n--templates $PROJECT_DIR/IntegrationExample/Templates/AppSecrets.stencil \\\n--output $PROJECT_DIR/IntegrationExample/Generated \\\n--args mimiClientSecret=\\\"$mimi_client_secret\\\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BD457B12295C3E710000EE19 /* Sources */ = {
@@ -138,7 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD457B1C295C3E710000EE19 /* ContentView.swift in Sources */,
+				BD305DBA295CBC8C001203EE /* ContentView.swift in Sources */,
 				BD457B1A295C3E710000EE19 /* IntegrationExampleApp.swift in Sources */,
+				BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */,
+				BD305DB6295CBC8C001203EE /* IntegrationExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +235,7 @@
 /* Begin XCBuildConfiguration section */
 		BD457B22295C3E720000EE19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD305DA8295CAD00001203EE /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -207,6 +296,7 @@
 		};
 		BD457B23295C3E720000EE19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD305DA8295CAD00001203EE /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
