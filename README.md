@@ -10,7 +10,7 @@ Requires iOS 16 and Swift 5.
 ## 🖥 Set Up
 
 To build the project you need the following pre-requisites:
-- Access to the app secrets credential (post a message in [#dev-mobile](https://gomimi.slack.com/archives/CT8RMRE85) to get access).
+- Your Mimi Client ID and Client Secret to allow you to communicate with the Mimi API
 - [Sourcery](https://github.com/krzysztofzablocki/Sourcery) (`brew install sourcery`).
 - [Xcode 14](https://apps.apple.com/gb/app/xcode/id497799835?mt=12) (or latest available) installed including the Xcode Command Line Tools.
 - MimiSDK frameworks
