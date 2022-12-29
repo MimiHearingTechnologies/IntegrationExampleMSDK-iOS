@@ -8,12 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */; };
-		BD305DB6295CBC8C001203EE /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */; };
 		BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DAF295CBC8C001203EE /* Assets.xcassets */; };
-		BD305DB8295CBC8C001203EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */; };
-		BD305DB9295CBC8C001203EE /* AppSecrets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = BD305DB3295CBC8C001203EE /* AppSecrets.stencil */; };
-		BD305DBA295CBC8C001203EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DB4295CBC8C001203EE /* ContentView.swift */; };
-		BD305DBC295D8F11001203EE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BD305DBB295D8F11001203EE /* README.md */; };
 		BD305DC4295DB36A001203EE /* MimiUXKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBE295DB369001203EE /* MimiUXKit.xcframework */; };
 		BD305DC5295DB36A001203EE /* MimiUXKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBE295DB369001203EE /* MimiUXKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD305DC6295DB36A001203EE /* MimiHTEKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBF295DB369001203EE /* MimiHTEKit.xcframework */; };
@@ -28,7 +23,6 @@
 		BD305DCF295DB36A001203EE /* MimiTestKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD457B1A295C3E710000EE19 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */; };
 		BD457B1C295C3E710000EE19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD457B1B295C3E710000EE19 /* ContentView.swift */; };
-		BD457B1E295C3E720000EE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD457B1D295C3E720000EE19 /* Assets.xcassets */; };
 		BD457B21295C3E720000EE19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD457B20295C3E720000EE19 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -243,12 +237,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD305DBC295D8F11001203EE /* README.md in Resources */,
-				BD305DB8295CBC8C001203EE /* Preview Assets.xcassets in Resources */,
 				BD457B21295C3E720000EE19 /* Preview Assets.xcassets in Resources */,
-				BD305DB9295CBC8C001203EE /* AppSecrets.stencil in Resources */,
 				BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */,
-				BD457B1E295C3E720000EE19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +247,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		BD305DA7295CAC65001203EE /* Generate Secrets */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -281,10 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD457B1C295C3E710000EE19 /* ContentView.swift in Sources */,
-				BD305DBA295CBC8C001203EE /* ContentView.swift in Sources */,
 				BD457B1A295C3E710000EE19 /* IntegrationExampleApp.swift in Sources */,
 				BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */,
-				BD305DB6295CBC8C001203EE /* IntegrationExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
