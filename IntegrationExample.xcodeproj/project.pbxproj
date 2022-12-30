@@ -272,7 +272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nmimi_client_secret=$CI_MIMI_CLIENT_SECRET\nif [ \"$mimi_client_secret\" == \"\" ]; then\n    mimi_client_secret=$MIMI_CLIENT_SECRET\nfi\n\nmimi_client_id=$CI_MIMI_CLIENT_ID\nif [ \"$mimi_client_id\" == \"\" ]; then\n    mimi_client_id=$MIMI_CLIENT_ID\nfi\n\n\nsourcery \\\n--sources $PROJECT_DIR/IntegrationExample \\\n--templates $PROJECT_DIR/IntegrationExample/Templates/AppSecrets.stencil \\\n--output $PROJECT_DIR/IntegrationExample/Generated \\\n--args mimiClientSecret=\\\"$mimi_client_secret\\\",mimiClientId=\\\"$mimi_client_id\\\"\n";
+			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nmimi_client_secret=$CI_MIMI_CLIENT_SECRET\nif [ \"$mimi_client_secret\" == \"\" ]; then\n    mimi_client_secret=$MIMI_CLIENT_SECRET\nfi\n\n\nsourcery \\\n--sources $PROJECT_DIR/IntegrationExample \\\n--templates $PROJECT_DIR/IntegrationExample/Templates/AppSecrets.stencil \\\n--output $PROJECT_DIR/IntegrationExample/Generated \\\n--args mimiClientSecret=\\\"$mimi_client_secret\\\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
