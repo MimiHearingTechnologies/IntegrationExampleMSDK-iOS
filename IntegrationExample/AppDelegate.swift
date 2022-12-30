@@ -29,16 +29,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     // MARK: MimiSDK
     
     private func startMimiCore() {
-        // Disable analytics
+        // Set up
         Mimi.allowsUsageDataCollection = false
+        MimiCore.shared.log.levels = [.all]
         
         // Start SDK
         Mimi.start(credentials: .client(id: Defaults.mimiClientId, secret: AppSecrets.mimiClientSecret),
                    delegate: self)
-        
-        #if DEBUG
-        MimiCore.shared.log.levels = [.all]
-        #endif
     }
 }
 

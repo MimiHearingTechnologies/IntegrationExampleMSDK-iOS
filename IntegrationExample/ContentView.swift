@@ -10,8 +10,13 @@ import MimiSDK
 
 struct ContentView: View {
     var body: some View {
-        MimiProfileView(configuration: MimiProfileConfiguration())
-            .edgesIgnoringSafeArea(.all)
+        TabView {
+            MimiProfileView(configuration: MimiProfileConfiguration())
+                .tabItem {
+                    Label("Profile", systemImage: "platter.2.filled.iphone")
+                }
+        }
+        
     }
 }
 
