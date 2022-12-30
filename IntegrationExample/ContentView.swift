@@ -16,7 +16,6 @@ struct ContentView: View {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }
         }
-        
     }
 }
 

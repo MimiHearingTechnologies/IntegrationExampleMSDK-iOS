@@ -21,7 +21,6 @@
 		BD305DCD295DB36A001203EE /* MimiSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC2295DB36A001203EE /* MimiSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD305DCE295DB36A001203EE /* MimiTestKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; };
 		BD305DCF295DB36A001203EE /* MimiTestKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD457B21295C3E720000EE19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD457B20295C3E720000EE19 /* Preview Assets.xcassets */; };
 		BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */; };
 		BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */; };
 		BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */; };
@@ -53,7 +52,6 @@
 		BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
 		BD305DAF295CBC8C001203EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD305DB3295CBC8C001203EE /* AppSecrets.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppSecrets.stencil; sourceTree = "<group>"; };
 		BD305DB4295CBC8C001203EE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD305DBB295D8F11001203EE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BD305DBE295DB369001203EE /* MimiUXKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiUXKit.xcframework; path = IntegrationExample/Frameworks/MimiUXKit.xcframework; sourceTree = "<group>"; };
@@ -63,8 +61,6 @@
 		BD305DC2295DB36A001203EE /* MimiSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiSDK.xcframework; path = IntegrationExample/Frameworks/MimiSDK.xcframework; sourceTree = "<group>"; };
 		BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiTestKit.xcframework; path = IntegrationExample/Frameworks/MimiTestKit.xcframework; sourceTree = "<group>"; };
 		BD457B16295C3E710000EE19 /* IntegrationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegrationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD457B1D295C3E720000EE19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD457B20295C3E720000EE19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimiProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,13 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */,
+				BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */,
+				BD305DB4295CBC8C001203EE /* ContentView.swift */,
 				BDC31C09295DC1A3002C7F65 /* MimiSwiftUI */,
 				BD305DAC295CBC8C001203EE /* Generated */,
-				BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */,
 				BD305DAF295CBC8C001203EE /* Assets.xcassets */,
 				BD305DB0295CBC8C001203EE /* Preview Content */,
-				BD305DB2295CBC8C001203EE /* Templates */,
-				BD305DB4295CBC8C001203EE /* ContentView.swift */,
 			);
 			name = IntegrationExample;
 			sourceTree = "<group>";
@@ -115,14 +110,6 @@
 				BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BD305DB2295CBC8C001203EE /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-				BD305DB3295CBC8C001203EE /* AppSecrets.stencil */,
-			);
-			path = Templates;
 			sourceTree = "<group>";
 		};
 		BD305DBD295DB369001203EE /* Frameworks */ = {
@@ -161,18 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				BD305DAB295CBC8C001203EE /* IntegrationExample */,
-				BD457B1D295C3E720000EE19 /* Assets.xcassets */,
-				BD457B1F295C3E720000EE19 /* Preview Content */,
 			);
 			path = IntegrationExample;
-			sourceTree = "<group>";
-		};
-		BD457B1F295C3E720000EE19 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				BD457B20295C3E720000EE19 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		BDC31C09295DC1A3002C7F65 /* MimiSwiftUI */ = {
@@ -247,7 +224,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD457B21295C3E720000EE19 /* Preview Assets.xcassets in Resources */,
 				BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
