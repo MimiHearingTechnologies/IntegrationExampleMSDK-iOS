@@ -6,16 +6,12 @@
 //
 
 import SwiftUI
+import MimiSDK
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        MimiProfileView(configuration: MimiProfileConfiguration())
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

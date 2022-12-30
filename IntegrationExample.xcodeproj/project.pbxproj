@@ -21,9 +21,10 @@
 		BD305DCD295DB36A001203EE /* MimiSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC2295DB36A001203EE /* MimiSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD305DCE295DB36A001203EE /* MimiTestKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; };
 		BD305DCF295DB36A001203EE /* MimiTestKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD457B1A295C3E710000EE19 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */; };
-		BD457B1C295C3E710000EE19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD457B1B295C3E710000EE19 /* ContentView.swift */; };
 		BD457B21295C3E720000EE19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD457B20295C3E720000EE19 /* Preview Assets.xcassets */; };
+		BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */; };
+		BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */; };
+		BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DB4295CBC8C001203EE /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,10 +62,9 @@
 		BD305DC2295DB36A001203EE /* MimiSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiSDK.xcframework; path = IntegrationExample/Frameworks/MimiSDK.xcframework; sourceTree = "<group>"; };
 		BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiTestKit.xcframework; path = IntegrationExample/Frameworks/MimiTestKit.xcframework; sourceTree = "<group>"; };
 		BD457B16295C3E710000EE19 /* IntegrationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegrationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
-		BD457B1B295C3E710000EE19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD457B1D295C3E720000EE19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD457B20295C3E720000EE19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimiProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +87,7 @@
 		BD305DAB295CBC8C001203EE /* IntegrationExample */ = {
 			isa = PBXGroup;
 			children = (
+				BDC31C09295DC1A3002C7F65 /* MimiSwiftUI */,
 				BD305DAC295CBC8C001203EE /* Generated */,
 				BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */,
 				BD305DAF295CBC8C001203EE /* Assets.xcassets */,
@@ -157,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				BD305DAB295CBC8C001203EE /* IntegrationExample */,
-				BD457B19295C3E710000EE19 /* IntegrationExampleApp.swift */,
-				BD457B1B295C3E710000EE19 /* ContentView.swift */,
 				BD457B1D295C3E720000EE19 /* Assets.xcassets */,
 				BD457B1F295C3E720000EE19 /* Preview Content */,
 			);
@@ -171,6 +170,14 @@
 				BD457B20295C3E720000EE19 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDC31C09295DC1A3002C7F65 /* MimiSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */,
+			);
+			path = MimiSwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD457B1C295C3E710000EE19 /* ContentView.swift in Sources */,
-				BD457B1A295C3E710000EE19 /* IntegrationExampleApp.swift in Sources */,
+				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
+				BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */,
+				BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */,
 				BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
