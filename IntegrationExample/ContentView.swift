@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MimiSDK
+import MimiCoreKit
 
 struct ContentView: View {
     var body: some View {
@@ -15,6 +16,17 @@ struct ContentView: View {
                 .tabItem {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }
+            
+            Group {
+                if let session = MimiCore.shared.processing.session.value {
+                    ProcessingView(viewModel: ProcessingViewModel(session: session))
+                } else {
+                    Text("Mimi Processing Session Unavailable")
+                }
+            }
+            .tabItem {
+                Label("Processing", systemImage: "waveform")
+            }
         }
     }
 }
