@@ -33,6 +33,28 @@ final class ProcessingViewModel: ObservableObject {
         // Since the Slider sends updates continously, setting the delivery mode to discreet
         // allows us to debounce the updates.
         session.intensity.deliveryMode = .discrete(seconds: 0.2)
+        
+        subscribeToSessionParameterUpdates()
+    }
+    
+    private func subscribeToSessionParameterUpdates() {
+        session.isEnabled.$value
+            .sink { [weak self] value in
+                self?.isEnabled = value
+            }
+            .store(in: &cancellables)
+        
+        session.intensity.$value
+            .sink { [weak self] value in
+                self?.intensity = value
+            }
+            .store(in: &cancellables)
+        
+        session.preset.$value
+            .sink { [weak self] value in
+                self?.presetId = value?.id
+            }
+            .store(in: &cancellables)
     }
     
     func applyIsEnabled(_ newValue: Bool) {
