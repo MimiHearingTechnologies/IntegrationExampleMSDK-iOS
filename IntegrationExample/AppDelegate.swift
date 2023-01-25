@@ -15,7 +15,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     // MARK: Defaults
     
     private struct Defaults {
-        static let mimiClientId = "de11b641c36b16b225ded485e0309b5e554c4d36e6568d36cba05a9d19b3cc71" // TODO: Replace with a new client id
         static let mimiFittingTechLevel = 4 // This is an example value. Yours may be different.
     }
     
@@ -40,7 +39,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         MimiCore.shared.log.levels = [.all]
         
         // Start SDK
-        Mimi.start(credentials: .client(id: Defaults.mimiClientId, secret: AppSecrets.mimiClientSecret),
+        Mimi.start(credentials: .client(id: AppSecrets.mimiDevClientId, secret: AppSecrets.mimiDevClientSecret),
                    delegate: self)
     }
     
