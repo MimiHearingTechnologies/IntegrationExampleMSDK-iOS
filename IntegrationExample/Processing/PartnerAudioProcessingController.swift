@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import MimiCoreKit
 
-/// An example audio processing controller which illustrates the usage of Mimi's Processing Applicators.
-final class PartnerAudioProcessingController: ObservableObject {
+/// An example audio processing controller which illustrates the usage of Mimi's Processing Applicators. Yours might be different.
+final class PartnerAudioProcessingController {
     
     private let session: MimiProcessingSession
     private let firmwareController: FirmwareControlling
