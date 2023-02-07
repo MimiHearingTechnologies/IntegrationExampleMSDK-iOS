@@ -19,7 +19,7 @@ struct ContentView: View {
             
             Group {
                 if let session = MimiCore.shared.processing.session.value {
-                    ProcessingView(viewModel: ProcessingViewModel(session: session))
+                    ProcessingView(viewModel: ProcessingViewModel(session: session, authController: MimiCore.shared.auth))
                 } else {
                     Text("Mimi Processing Session Unavailable")
                 }

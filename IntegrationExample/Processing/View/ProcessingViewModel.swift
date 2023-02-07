@@ -15,6 +15,8 @@ final class ProcessingViewModel: ObservableObject {
     @Published var intensity: Float
     @Published var presetId: String?
     
+    @Published var isUserLoggedIn: Bool
+    
     private let session: MimiProcessingSession
     
     private var isEnabledApplyCancellable: AnyCancellable?
@@ -23,16 +25,20 @@ final class ProcessingViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(session: MimiProcessingSession) {
+    init(session: MimiProcessingSession, authController: MimiAuthController) {
         self.isEnabled = session.isEnabled.value
         self.intensity = session.intensity.value
         self.presetId = session.preset.value?.id
+        
+        self.isUserLoggedIn = authController.currentUser != nil
         
         self.session = session
         
         // Since the Slider sends updates continously, setting the delivery mode to discreet
         // allows us to debounce the updates.
         session.intensity.deliveryMode = .discrete(seconds: 0.2)
+        
+        authController.observable.addObserver(self)
         
         subscribeToSessionParameterUpdates()
     }
@@ -95,5 +101,12 @@ final class ProcessingViewModel: ObservableObject {
             } receiveValue: { [weak self] preset in
                 self?.presetId = preset?.id
             }
+    }
+}
+
+extension ProcessingViewModel: MimiAuthControllerObservable {
+    
+    func authController(_ controller: MimiCoreKit.MimiAuthController, didUpdate currentUser: MimiCoreKit.MimiUser?, from oldUser: MimiCoreKit.MimiUser?, error: MimiCoreKit.MimiCoreError?) {
+        self.isUserLoggedIn = currentUser != nil
     }
 }

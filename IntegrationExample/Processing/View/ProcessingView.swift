@@ -48,10 +48,14 @@ struct ProcessingView: View {
                     Text(viewModel.presetId ?? "nil")
                         .font(.caption)
                 }
-                Button("Reload") {
-                    viewModel.reloadPreset()
+                if viewModel.isUserLoggedIn {
+                    Button("Reload") {
+                        viewModel.reloadPreset()
+                    }
+                    .buttonStyle(.bordered)
+                } else {
+                    Text("⚠️ User not logged in")
                 }
-                .buttonStyle(.bordered)
             }
         }
         .padding(32.0)
