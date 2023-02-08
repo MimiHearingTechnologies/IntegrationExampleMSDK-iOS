@@ -12,11 +12,8 @@ import MimiSDK
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
-    // MARK: Defaults
-    
-    private struct Defaults {
-        static let mimiFittingTechLevel = 4 // This is an example value. Yours may be different.
-    }
+    private let firmwareController: FirmwareControlling = PartnerFirmwareController()
+    private var audioProcessingController: PartnerAudioProcessingController!
     
     // MARK: UIApplicationDelegate
     
@@ -24,7 +21,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         
         startMimiCore()
         do {
-            try activateMimiProcessing()
+            let session = try activateMimiProcessing(techLevel: firmwareController.getTechLevel())
+            self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: firmwareController)
         } catch {
             fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
         }
@@ -43,16 +41,16 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                    delegate: self)
     }
     
-    private func activateMimiProcessing() throws {
+    private func activateMimiProcessing(techLevel: Int) throws -> MimiProcessingSession {
         let processing = MimiCore.shared.processing
         
         // In the following, the session is instantiated with an UpDown datasource which provides (if available) a range of 3 presets - up, default & down. The UpDown datasource is the data source to be used for the so called Fine-tuning feature.
-        let fitting = MimiPersonalization.Fitting.techLevel(Defaults.mimiFittingTechLevel)
-        let _ = try processing.activate(presetDataSource: .upDown(.init(fitting: fitting)))
+        let fitting = MimiPersonalization.Fitting.techLevel(techLevel)
+        return try processing.activate(presetDataSource: .upDown(.init(fitting: fitting)))
         
         // If only 1 preset, is desired, the Default datasource is to be used as follows.
-//        let fitting = MimiPersonalization.Fitting.techLevel(Defaults.mimiFittingTechLevel)
-//        try processing.activate(presetDataSource: .default(.init(fitting: fitting)))
+//        let fitting = MimiPersonalization.Fitting.techLevel(techLevel)
+//        return try processing.activate(presetDataSource: .default(.init(fitting: fitting)))
     }
 }
 
