@@ -96,7 +96,7 @@
 				BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */,
 				BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */,
 				BD305DB4295CBC8C001203EE /* ContentView.swift */,
-				BDC31C09295DC1A3002C7F65 /* MimiSwiftUI */,
+				BDC31C09295DC1A3002C7F65 /* Profile */,
 				BD7A05E2295EFD2100604BE9 /* Processing */,
 				BD305DAC295CBC8C001203EE /* Generated */,
 				BD305DAF295CBC8C001203EE /* Assets.xcassets */,
@@ -180,12 +180,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BDC31C09295DC1A3002C7F65 /* MimiSwiftUI */ = {
+		BDC31C09295DC1A3002C7F65 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */,
 			);
-			path = MimiSwiftUI;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
