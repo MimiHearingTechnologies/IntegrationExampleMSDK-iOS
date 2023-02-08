@@ -39,7 +39,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         MimiCore.shared.log.levels = [.all]
         
         // Start SDK
-        Mimi.start(credentials: .client(id: AppSecrets.mimiDevClientId, secret: AppSecrets.mimiDevClientSecret),
+        Mimi.start(credentials: .client(id: AppSecrets.mimiClientId, secret: AppSecrets.mimiClientSecret),
                    delegate: self)
     }
     

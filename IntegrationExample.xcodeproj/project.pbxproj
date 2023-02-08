@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */; };
 		BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DAF295CBC8C001203EE /* Assets.xcassets */; };
 		BD305DC4295DB36A001203EE /* MimiUXKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBE295DB369001203EE /* MimiUXKit.xcframework */; };
 		BD305DC5295DB36A001203EE /* MimiUXKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBE295DB369001203EE /* MimiUXKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -29,6 +28,7 @@
 		BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */; };
 		BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */; };
 		BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DB4295CBC8C001203EE /* ContentView.swift */; };
+		BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4028A2993B40F008BFC0E /* AppSecrets.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		BD305DA8295CAD00001203EE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
-		BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
 		BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
 		BD305DAF295CBC8C001203EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerFirmwareController.swift; sourceTree = "<group>"; };
 		BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
 		BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimiProfileView.swift; sourceTree = "<group>"; };
+		BDE4028A2993B40F008BFC0E /* AppSecrets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		BD305DAC295CBC8C001203EE /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				BD305DAD295CBC8C001203EE /* AppSecrets.generated.swift */,
+				BDE4028A2993B40F008BFC0E /* AppSecrets.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nmimi_dev_client_id=$CI_MIMI_DEV_CLIENT_ID\nif [ \"$mimi_dev_client_id\" == \"\" ]; then\n    mimi_dev_client_id=$MIMI_DEV_CLIENT_ID\nfi\n\nmimi_dev_client_secret=$CI_MIMI_DEV_CLIENT_SECRET\nif [ \"$mimi_dev_client_secret\" == \"\" ]; then\n    mimi_dev_client_secret=$MIMI_DEV_CLIENT_SECRET\nfi\n\nsourcery \\\n--sources $PROJECT_DIR/IntegrationExample \\\n--templates $PROJECT_DIR/IntegrationExample/Templates/AppSecrets.stencil \\\n--output $PROJECT_DIR/IntegrationExample/Generated \\\n--args mimiDevClientSecret=\\\"$mimi_dev_client_secret\\\",mimiDevClientId=\\\"$mimi_dev_client_id\\\"\n";
+			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nmimi_client_id=$CI_MIMI_CLIENT_ID\nif [ \"$mimi_client_id\" == \"\" ]; then\n    mimi_client_id=$MIMI_CLIENT_ID\nfi\n\nmimi_dev_client_secret=$CI_MIMI_CLIENT_SECRET\nif [ \"$mimi_client_secret\" == \"\" ]; then\n    mimi_client_secret=$MIMI_CLIENT_SECRET\nfi\n\nsourcery \\\n--sources $PROJECT_DIR/IntegrationExample \\\n--templates $PROJECT_DIR/IntegrationExample/Templates/AppSecrets.stencil \\\n--output $PROJECT_DIR/IntegrationExample/Generated \\\n--args mimiClientSecret=\\\"$mimi_client_secret\\\",mimiClientId=\\\"$mimi_client_id\\\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -287,13 +287,13 @@
 			files = (
 				BDAA5D40296BC5790085D636 /* ProcessingViewModel.swift in Sources */,
 				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
+				BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */,
 				BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */,
 				BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */,
 				BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */,
 				BDAA5D3E29694A5B0085D636 /* PartnerFirmwareController.swift in Sources */,
 				BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */,
 				BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */,
-				BD305DB5295CBC8C001203EE /* AppSecrets.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
