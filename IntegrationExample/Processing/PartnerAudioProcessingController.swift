@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import MimiCoreKit
 
-/// An example audio processing controller which illustrates the usage of Mimi's Processing Applicators. Yours might be different.
+/// A mock audio processing controller which illustrates the usage of Mimi Processing Parameter Applicators.
 final class PartnerAudioProcessingController {
     
     private let session: MimiProcessingSession
@@ -43,14 +43,8 @@ final class PartnerAudioProcessingController {
     private func makeIsEnabledApplicator(session: MimiProcessingSession, firmwareController: FirmwareControlling) -> MimiProcessingParameterApplicator<Bool> {
         let isEnabledValue = firmwareController.getIsEnabled()
         
-        let (isEnabledApplicator, applicationPublisher) = session.isEnabled.applicator(synchronizing: isEnabledValue)
-        
-        applicationPublisher
-            .sink { completion in
-                // Handle the completion of the application of the synchronizing value
-            } receiveValue: { _ in
-            }
-            .store(in: &cancellables)
+        // Create an isEnabled applicator that is in sync with the isEnabled value on the firmware.
+        let (isEnabledApplicator, _) = session.isEnabled.applicator(synchronizing: isEnabledValue)
         
         return isEnabledApplicator
     }
@@ -58,14 +52,8 @@ final class PartnerAudioProcessingController {
     private func makeIntensityApplicator(session: MimiProcessingSession, firmwareController: FirmwareControlling) -> MimiProcessingParameterApplicator<Float> {
         let intensityValue = firmwareController.getIntensity()
         
-        let (intensityApplicator, applicationPublisher) = session.intensity.applicator(synchronizing: intensityValue)
-        
-        applicationPublisher
-            .sink { completion in
-                // Handle the completion of the application of the synchronizing value
-            } receiveValue: { _ in
-            }
-            .store(in: &cancellables)
+        // Create an intensity applicator that is in sync with the intensity value on the firmware.
+        let (intensityApplicator, _) = session.intensity.applicator(synchronizing: intensityValue)
         
         return intensityApplicator
     }
