@@ -9,7 +9,6 @@ Integration Example app for iOS is primarily meant for Mimi's partners to help t
 ## 📋 Requirements
 
 To build the project you need the following pre-requisites:
-- Xcode 14
 - Your Mimi Client Id and Secret to allow you to communicate with the Mimi API.
 - MimiSDK v7 frameworks.
 - [Sourcery](https://github.com/krzysztofzablocki/Sourcery) (`brew install sourcery`).
