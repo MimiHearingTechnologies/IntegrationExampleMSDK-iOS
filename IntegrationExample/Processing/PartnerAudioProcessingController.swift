@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import MimiCoreKit
 
-/// An example audio processing controller which illustrates the usage of Mimi's Processing Applicators. Yours might be different.
+/// A mock audio processing controller which illustrates the usage of Mimi Processing Parameter Applicators.
 final class PartnerAudioProcessingController {
     
     private let session: MimiProcessingSession
