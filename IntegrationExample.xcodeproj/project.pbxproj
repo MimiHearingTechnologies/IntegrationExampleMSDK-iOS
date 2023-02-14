@@ -51,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD0FD891299A72D80013099D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		BD305DA8295CAD00001203EE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
 		BD305DAF295CBC8C001203EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		BD457B0D295C3E710000EE19 = {
 			isa = PBXGroup;
 			children = (
+				BD0FD891299A72D80013099D /* CHANGELOG.md */,
 				BD305DBB295D8F11001203EE /* README.md */,
 				BD305DA8295CAD00001203EE /* Secrets.xcconfig */,
 				BD457B18295C3E710000EE19 /* IntegrationExample */,
