@@ -2,4 +2,4 @@
 
 ## 1.0.0
 
-- Initial release of the iOS Integration Example App for iOS MSDK v7
+- Initial release of the iOS Integration Example App for MSDK v7
