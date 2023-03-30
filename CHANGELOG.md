@@ -6,3 +6,4 @@
 
 ## 1.1.0
 - Fix crash due to missing usage descriptions
+- Add new Core tab with latest test results
