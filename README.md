@@ -32,6 +32,7 @@ The code outlining the usage of the Mimi Processing APIs can be found under the 
 
 - `PartnerFirmwareController` - A mock implementation of an object that communicates with the `Mimi Processing Library` on the Mimi enabled device's firmware.
 - `PartnerAudioProcessingController` - A mock audio processing controller which illustrates the usage of the Mimi Processing Parameter Applicators.
+- `PartnerHeadphoneConnectivityController - A mock headphone connectivity controller which provides information on the currently connected headphone to the MSDK.
 - `ProcessingView` & `ProcessingViewModel` - These files illustrate the usage of the Mimi Processing Parameters.
 
 ### Additional Documentation

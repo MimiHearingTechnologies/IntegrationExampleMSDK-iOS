@@ -23,6 +23,7 @@
 		BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6829D5858B00062126 /* CoreView.swift */; };
 		BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6D29D599D600062126 /* TestViewModel.swift */; };
 		BD3C1D7229D59AFF00062126 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D7129D59AFF00062126 /* TestView.swift */; };
+		BD50801C2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50801B2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift */; };
 		BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */; };
 		BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */; };
 		BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */; };
@@ -71,6 +72,7 @@
 		BD3C1D6D29D599D600062126 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		BD3C1D7129D59AFF00062126 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		BD457B16295C3E710000EE19 /* IntegrationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegrationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD50801B2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerHeadphoneConnectivityController.swift; sourceTree = "<group>"; };
 		BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerAudioProcessingController.swift; sourceTree = "<group>"; };
 		BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
@@ -145,8 +147,8 @@
 		BD3C1D6729D5855E00062126 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				BD3C1D6829D5858B00062126 /* CoreView.swift */,
-				BD3C1D6C29D599BF00062126 /* Test */,
+				BD50801A2A66986A00971D55 /* View */,
+				BD50801B2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -186,6 +188,15 @@
 				BD305DAB295CBC8C001203EE /* IntegrationExample */,
 			);
 			path = IntegrationExample;
+			sourceTree = "<group>";
+		};
+		BD50801A2A66986A00971D55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD3C1D6829D5858B00062126 /* CoreView.swift */,
+				BD3C1D6C29D599BF00062126 /* Test */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BD7A05E2295EFD2100604BE9 /* Processing */ = {
@@ -314,6 +325,7 @@
 			files = (
 				BD3C1D7229D59AFF00062126 /* TestView.swift in Sources */,
 				BDAA5D40296BC5790085D636 /* ProcessingViewModel.swift in Sources */,
+				BD50801C2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift in Sources */,
 				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
 				BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */,
 				BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */,

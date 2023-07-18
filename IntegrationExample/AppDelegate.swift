@@ -13,6 +13,7 @@ import MimiSDK
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
+    private let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
     private var audioProcessingController: PartnerAudioProcessingController!
     
     // MARK: UIApplicationDelegate
@@ -39,6 +40,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         // Start SDK
         Mimi.start(credentials: .client(id: AppSecrets.mimiClientId, secret: AppSecrets.mimiClientSecret),
                    delegate: self)
+        
+        // Set up headphone connectivity
+        // For more documentation on this see: https://mimihearingtechnologies.github.io/SDKDocs-iOS/master/connected-headphone-identification.html
+        MimiCore.shared.test.connectedHeadphoneProvider = headphoneConnectivityController
     }
     
     private func activateMimiProcessing(techLevel: Int) throws -> MimiProcessingSession {
