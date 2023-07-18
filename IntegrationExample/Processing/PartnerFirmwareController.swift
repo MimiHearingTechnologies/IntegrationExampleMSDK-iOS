@@ -8,7 +8,7 @@
 import Foundation
 import MimiCoreKit
 
-/// An mock interface for communicating with the `Mimi Processing Library` on the Mimi enabled device's firmware.
+/// A mock interface for communicating with the `Mimi Processing Library` on the Mimi enabled device's firmware.
 protocol FirmwareControlling {
     
     func getTechLevel() -> Int
