@@ -33,6 +33,7 @@ final class PartnerAudioProcessingController {
         
         setUpIsEnabledApplicator(isEnabledApplicator)
         setUpIntensityApplicator(intensityApplicator)
+        setUpPresetApplicator(presetApplicator)
         
         // Hold strong references to parameter applicators
         self.intensityApplicator = intensityApplicator
