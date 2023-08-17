@@ -14,3 +14,6 @@
 
 ## 2.0.1
 - Fix missing setup for preset applicator
+
+## 2.1.0
+- Update MSDK to v8.1.0
