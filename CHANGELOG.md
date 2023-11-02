@@ -21,3 +21,4 @@
 
 ## 3.0.0
 - Update MSDK to v9.0.1
+- Add localizations for Polish, Dutch and English (United Kingdom)
