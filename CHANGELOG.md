@@ -18,3 +18,7 @@
 ## 2.1.0
 - Update MSDK to v8.1.0
 - Add localizations for all MSDK supported localizations
+
+## 3.0.0
+- Update MSDK to v9.0.1
+- Add localizations for Polish, Dutch and English (United Kingdom)
