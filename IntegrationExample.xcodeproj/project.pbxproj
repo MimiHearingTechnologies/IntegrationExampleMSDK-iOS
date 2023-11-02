@@ -56,6 +56,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F4665EB2AF3B2F000C2C900 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = Localizations/pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F4665EC2AF3B30200C2C900 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "Localizations/en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2F4665ED2AF3B31800C2C900 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = Localizations/nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BD0FD891299A72D80013099D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		BD305DA8295CAD00001203EE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
@@ -316,6 +319,9 @@
 				"zh-HK",
 				"zh-CN",
 				"zh-TW",
+				pl,
+				"en-GB",
+				nl,
 			);
 			mainGroup = BD457B0D295C3E710000EE19;
 			packageReferences = (
@@ -408,6 +414,9 @@
 				BDE098A52A8E2E5300E6506D /* zh-HK */,
 				BDE098A62A8E2E6900E6506D /* zh-CN */,
 				BDE098A72A8E2E8400E6506D /* zh-TW */,
+				2F4665EB2AF3B2F000C2C900 /* pl */,
+				2F4665EC2AF3B30200C2C900 /* en-GB */,
+				2F4665ED2AF3B31800C2C900 /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
