@@ -17,8 +17,6 @@ To build the project you need the following pre-requisites:
 ## 🖥 Building
 
 Clone the project and do the following:
-- Open `IntegrationExample.xcodeproj`.
-- Copy over the `MimiSDK` xcframework files into the `IntegrationExample/Frameworks` folder.
 - Set the `MIMI_CLIENT_ID` & `MIMI_CLIENT_SECRET` values in `Secrets.xcconfig`.
    - To ignore changes to this file in Git run the following `git update-index --skip-worktree Secrets.xcconfig`.
 - Build/Run to your heart's content.
