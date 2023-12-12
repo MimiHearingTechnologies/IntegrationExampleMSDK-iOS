@@ -17,6 +17,7 @@ To build the project you need the following pre-requisites:
 ## 🖥 Building
 
 Clone the project and do the following:
+- Update MimiSDK package to latest version
 - Set the `MIMI_CLIENT_ID` & `MIMI_CLIENT_SECRET` values in `Secrets.xcconfig`.
    - To ignore changes to this file in Git run the following `git update-index --skip-worktree Secrets.xcconfig`.
 - Build/Run to your heart's content.
