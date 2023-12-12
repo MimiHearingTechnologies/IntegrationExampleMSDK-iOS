@@ -22,3 +22,8 @@
 ## 3.0.0
 - Update MSDK to v9.0.1
 - Add localizations for Polish, Dutch and English (United Kingdom)
+
+## 4.0.0
+- Integrate MSDK via Swift Package Manager
+- Update MSDK to v9.2.0
+- Shorten PTT test
