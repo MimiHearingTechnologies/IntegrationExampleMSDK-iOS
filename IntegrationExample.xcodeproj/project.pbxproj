@@ -7,19 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B3B0F12B285A2A001934CB /* MimiSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 10B3B0F02B285A2A001934CB /* MimiSDK */; };
 		BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DAF295CBC8C001203EE /* Assets.xcassets */; };
-		BD305DC4295DB36A001203EE /* MimiUXKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBE295DB369001203EE /* MimiUXKit.xcframework */; };
-		BD305DC5295DB36A001203EE /* MimiUXKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBE295DB369001203EE /* MimiUXKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD305DC6295DB36A001203EE /* MimiHTEKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBF295DB369001203EE /* MimiHTEKit.xcframework */; };
-		BD305DC7295DB36A001203EE /* MimiHTEKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DBF295DB369001203EE /* MimiHTEKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD305DC8295DB36A001203EE /* MimiAuthKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC0295DB369001203EE /* MimiAuthKit.xcframework */; };
-		BD305DC9295DB36A001203EE /* MimiAuthKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC0295DB369001203EE /* MimiAuthKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD305DCA295DB36A001203EE /* MimiCoreKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC1295DB36A001203EE /* MimiCoreKit.xcframework */; };
-		BD305DCB295DB36A001203EE /* MimiCoreKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC1295DB36A001203EE /* MimiCoreKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD305DCC295DB36A001203EE /* MimiSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC2295DB36A001203EE /* MimiSDK.xcframework */; };
-		BD305DCD295DB36A001203EE /* MimiSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC2295DB36A001203EE /* MimiSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD305DCE295DB36A001203EE /* MimiTestKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; };
-		BD305DCF295DB36A001203EE /* MimiTestKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6829D5858B00062126 /* CoreView.swift */; };
 		BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6D29D599D600062126 /* TestViewModel.swift */; };
 		BD3C1D7229D59AFF00062126 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D7129D59AFF00062126 /* TestView.swift */; };
@@ -36,25 +25,6 @@
 		BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4028A2993B40F008BFC0E /* AppSecrets.generated.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		BD305DD0295DB36A001203EE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BD305DCF295DB36A001203EE /* MimiTestKit.xcframework in Embed Frameworks */,
-				BD305DC7295DB36A001203EE /* MimiHTEKit.xcframework in Embed Frameworks */,
-				BD305DC5295DB36A001203EE /* MimiUXKit.xcframework in Embed Frameworks */,
-				BD305DC9295DB36A001203EE /* MimiAuthKit.xcframework in Embed Frameworks */,
-				BD305DCD295DB36A001203EE /* MimiSDK.xcframework in Embed Frameworks */,
-				BD305DCB295DB36A001203EE /* MimiCoreKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		2F4665EB2AF3B2F000C2C900 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = Localizations/pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F4665EC2AF3B30200C2C900 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "Localizations/en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -66,12 +36,6 @@
 		BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD305DB4295CBC8C001203EE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD305DBB295D8F11001203EE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BD305DBE295DB369001203EE /* MimiUXKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiUXKit.xcframework; path = IntegrationExample/Frameworks/MimiUXKit.xcframework; sourceTree = "<group>"; };
-		BD305DBF295DB369001203EE /* MimiHTEKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiHTEKit.xcframework; path = IntegrationExample/Frameworks/MimiHTEKit.xcframework; sourceTree = "<group>"; };
-		BD305DC0295DB369001203EE /* MimiAuthKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiAuthKit.xcframework; path = IntegrationExample/Frameworks/MimiAuthKit.xcframework; sourceTree = "<group>"; };
-		BD305DC1295DB36A001203EE /* MimiCoreKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiCoreKit.xcframework; path = IntegrationExample/Frameworks/MimiCoreKit.xcframework; sourceTree = "<group>"; };
-		BD305DC2295DB36A001203EE /* MimiSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiSDK.xcframework; path = IntegrationExample/Frameworks/MimiSDK.xcframework; sourceTree = "<group>"; };
-		BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MimiTestKit.xcframework; path = IntegrationExample/Frameworks/MimiTestKit.xcframework; sourceTree = "<group>"; };
 		BD3C1D6829D5858B00062126 /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
 		BD3C1D6D29D599D600062126 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		BD3C1D7129D59AFF00062126 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -105,16 +69,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BD457B13295C3E710000EE19 /* Frameworks */ = {
+		10B3B0EF2B285A24001934CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD305DCE295DB36A001203EE /* MimiTestKit.xcframework in Frameworks */,
-				BD305DC6295DB36A001203EE /* MimiHTEKit.xcframework in Frameworks */,
-				BD305DC4295DB36A001203EE /* MimiUXKit.xcframework in Frameworks */,
-				BD305DC8295DB36A001203EE /* MimiAuthKit.xcframework in Frameworks */,
-				BD305DCC295DB36A001203EE /* MimiSDK.xcframework in Frameworks */,
-				BD305DCA295DB36A001203EE /* MimiCoreKit.xcframework in Frameworks */,
+				10B3B0F12B285A2A001934CB /* MimiSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,19 +113,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BD305DBD295DB369001203EE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BD305DC0295DB369001203EE /* MimiAuthKit.xcframework */,
-				BD305DC1295DB36A001203EE /* MimiCoreKit.xcframework */,
-				BD305DBF295DB369001203EE /* MimiHTEKit.xcframework */,
-				BD305DC2295DB36A001203EE /* MimiSDK.xcframework */,
-				BD305DC3295DB36A001203EE /* MimiTestKit.xcframework */,
-				BD305DBE295DB369001203EE /* MimiUXKit.xcframework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BD3C1D6729D5855E00062126 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +139,6 @@
 				BD305DA8295CAD00001203EE /* Secrets.xcconfig */,
 				BD457B18295C3E710000EE19 /* IntegrationExample */,
 				BD457B17295C3E710000EE19 /* Products */,
-				BD305DBD295DB369001203EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,9 +211,8 @@
 			buildPhases = (
 				BD305DA7295CAC65001203EE /* Generate Secrets */,
 				BD457B12295C3E710000EE19 /* Sources */,
-				BD457B13295C3E710000EE19 /* Frameworks */,
+				10B3B0EF2B285A24001934CB /* Frameworks */,
 				BD457B14295C3E710000EE19 /* Resources */,
-				BD305DD0295DB36A001203EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +220,7 @@
 			);
 			name = IntegrationExample;
 			packageProductDependencies = (
+				10B3B0F02B285A2A001934CB /* MimiSDK */,
 			);
 			productName = IntegrationExample;
 			productReference = BD457B16295C3E710000EE19 /* IntegrationExample.app */;
@@ -325,6 +270,7 @@
 			);
 			mainGroup = BD457B0D295C3E710000EE19;
 			packageReferences = (
+				10B3B0EC2B27C203001934CB /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */,
 			);
 			productRefGroup = BD457B17295C3E710000EE19 /* Products */;
 			projectDirPath = "";
@@ -640,6 +586,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		10B3B0EC2B27C203001934CB /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MimiHearingTechnologies/SDK-iOS-Binaries.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		10B3B0F02B285A2A001934CB /* MimiSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10B3B0EC2B27C203001934CB /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */;
+			productName = MimiSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD457B0E295C3E710000EE19 /* Project object */;
 }
