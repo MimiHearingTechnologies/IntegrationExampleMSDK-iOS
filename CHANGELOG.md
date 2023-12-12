@@ -26,4 +26,3 @@
 ## 4.0.0
 - Integrate MSDK via Swift Package Manager
 - Update MSDK to v9.2.0
-- Shorten PTT test
