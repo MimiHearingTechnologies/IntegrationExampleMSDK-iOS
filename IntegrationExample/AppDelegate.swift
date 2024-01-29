@@ -40,6 +40,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 guard let self else { return }
 
                 switch state {
+                    // Activate processing when headphones are connected
                 case .connected(let model):
                     do {
                         let session = try activateMimiProcessing(techLevel: firmwareController.getTechLevel())
@@ -47,7 +48,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                     } catch {
                         fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
                     }
-                default:
+                case .disconnected:
+                    // Handle headphone disconnected state
+
                     return
                 }
             }
