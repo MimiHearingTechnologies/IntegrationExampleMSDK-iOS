@@ -10,6 +10,7 @@ import MimiSDK
 import MimiCoreKit
 
 struct ContentView: View {
+
     var body: some View {
         TabView {
             MimiProfileView(configuration: MimiProfileConfiguration())
