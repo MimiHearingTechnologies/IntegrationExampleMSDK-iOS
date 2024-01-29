@@ -9,27 +9,51 @@ import Foundation
 import MimiCoreKit
 import MimiUXKit
 import MimiSDK
+import Combine
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
     private let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
     private var audioProcessingController: PartnerAudioProcessingController!
-    
+
+    private var cancellables = Set<AnyCancellable>()
+
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         startMimiCore()
-        do {
-            let session = try activateMimiProcessing(techLevel: firmwareController.getTechLevel())
-            self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: firmwareController)
-        } catch {
-            fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
-        }
+
+        // Observe headphone connectivity state changes
+        observeHeadphoneConnectivityState()
+
+        // Simulate headphone connection
+        headphoneConnectivityController.simulateHeadphoneConnection()
+
         return true
     }
-    
+
+    private func observeHeadphoneConnectivityState() {
+        headphoneConnectivityController.state
+            .sink { [weak self] state in
+                guard let self else { return }
+
+                switch state {
+                case .connected(let model):
+                    do {
+                        let session = try activateMimiProcessing(techLevel: firmwareController.getTechLevel())
+                        self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: firmwareController)
+                    } catch {
+                        fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
+                    }
+                default:
+                    return
+                }
+            }
+            .store(in: &cancellables)
+    }
+
     // MARK: MimiSDK
     
     private func startMimiCore() {

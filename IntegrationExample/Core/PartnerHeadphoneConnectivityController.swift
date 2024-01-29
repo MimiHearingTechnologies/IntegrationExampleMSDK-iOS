@@ -7,6 +7,7 @@
 
 import Foundation
 import MimiCoreKit
+import Combine
 
 /// A mock headphone connectivity controller which provides information on the currently connected headphone to the MSDK.
 /// Documentation: https://mimihearingtechnologies.github.io/SDKDocs-iOS/master/connected-headphone-identification.html
@@ -17,11 +18,10 @@ final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvid
         case connected(model: String)
     }
     
-    var state: ConnectivityState = .connected(model: "mimi-partner-headphone-model") // Mock headphone model value.
-    
+    var state: CurrentValueSubject<ConnectivityState, Never> = CurrentValueSubject(.disconnected)
+
     func getMimiHeadphoneIdentifier() -> MimiHeadphoneIdentifier? {
-        
-        switch state {
+        switch state.value {
         case .disconnected:
             // Return nil if no headphone is currently connected.
             return nil
@@ -29,5 +29,12 @@ final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvid
             // If headphone connected, return the headphone identifier based on the headphone model value.
             return MimiHeadphoneIdentifier(model: model)
         }
+    }
+
+    /// Simulate headphone connection by setting the state to `connected` with mocked headphone model
+    func simulateHeadphoneConnection() {
+        let model = "mimi-partner-headphone-model"
+
+        state.send(.connected(model: model))
     }
 }
