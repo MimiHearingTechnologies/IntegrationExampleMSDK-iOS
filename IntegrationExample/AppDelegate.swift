@@ -20,31 +20,31 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: UIApplicationDelegate
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
+
         startMimiCore()
 
         // Observe headphone connectivity state changes
         observeHeadphoneConnectivityState()
 
-        // Simulate headphone connection
-        headphoneConnectivityController.simulateHeadphoneConnection()
-
         return true
+    }
+
+    // Simulate a headphone connection, and as a result, activate the processing session
+    func simulateHeadphoneConnection() {
+        headphoneConnectivityController.simulateHeadphoneConnection()
     }
 
     private func observeHeadphoneConnectivityState() {
         headphoneConnectivityController.state
-            .sink { [weak self] state in
-                guard let self else { return }
-
+            .sink { state in
                 switch state {
                     // Activate processing when headphones are connected
-                case .connected(let model):
+                case .connected:
                     do {
-                        let session = try activateMimiProcessing(techLevel: firmwareController.getTechLevel())
-                        self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: firmwareController)
+                        let session = try self.activateMimiProcessing(techLevel: self.firmwareController.getTechLevel())
+                        self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: self.firmwareController)
                     } catch {
                         fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
                     }

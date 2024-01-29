@@ -15,6 +15,9 @@ struct IntegrationExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    appDelegate.simulateHeadphoneConnection()
+                }
         }
     }
 }
