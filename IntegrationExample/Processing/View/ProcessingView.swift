@@ -6,17 +6,45 @@
 //
 
 import SwiftUI
+import Combine
 import MimiCoreKit
 
 struct ProcessingView: View {
-    
+
+    @EnvironmentObject var appDelegate: AppDelegate
     @ObservedObject var viewModel: ProcessingViewModel
-    
+
+    @State var isHeadphoneConnected: Bool = true
+    @State private var cancellables = Set<AnyCancellable>()
+
     init(viewModel: ProcessingViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
+        VStack(spacing: 64) {
+            connectivityView
+
+            parametersView
+                .opacity(isHeadphoneConnected ? 1 : 0)
+        }
+        .padding(.horizontal, 32)
+    }
+
+    private var connectivityView: some View {
+        VStack {
+            Text("Headphone Connectivity")
+                .font(.title2)
+            HStack {
+                Toggle("Headphones connected", isOn: Binding<Bool>(get: { isHeadphoneConnected }, set: { value in
+                    isHeadphoneConnected = value
+                    appDelegate.simulateHeadphoneConnection(isConnected: value)
+                }))
+            }
+        }
+    }
+
+    private var parametersView: some View {
         VStack(spacing: 32.0) {
             Text("Mimi Processing Parameters")
                 .font(.title2)
@@ -58,6 +86,5 @@ struct ProcessingView: View {
                 }
             }
         }
-        .padding(32.0)
     }
 }

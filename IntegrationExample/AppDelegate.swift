@@ -11,7 +11,7 @@ import MimiUXKit
 import MimiSDK
 import Combine
 
-final class AppDelegate: NSObject, UIApplicationDelegate {
+final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
 
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
     private let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
@@ -32,8 +32,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     // Simulate a headphone connection, and as a result, activate the processing session
-    func simulateHeadphoneConnection() {
-        headphoneConnectivityController.simulateHeadphoneConnection()
+    func simulateHeadphoneConnection(isConnected: Bool) {
+        headphoneConnectivityController.simulateHeadphoneConnection(isConnected: isConnected)
     }
 
     private func observeHeadphoneConnectivityState() {
@@ -50,6 +50,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                     }
                 case .disconnected:
                     // Handle headphone disconnected state
+                    MimiCore.shared.processing.deactivate()
 
                     return
                 }

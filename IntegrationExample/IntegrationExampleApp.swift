@@ -12,10 +12,6 @@ struct IntegrationExampleApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    init() {
-        appDelegate.simulateHeadphoneConnection()
-    }
-
     var body: some Scene {
         WindowGroup {
             ContentView()

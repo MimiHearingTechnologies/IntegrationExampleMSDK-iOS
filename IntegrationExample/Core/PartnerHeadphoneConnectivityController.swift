@@ -17,8 +17,14 @@ final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvid
         case disconnected
         case connected(model: String)
     }
-    
-    var state: CurrentValueSubject<ConnectivityState, Never> = CurrentValueSubject(.disconnected)
+
+    private let model = "mimi-partner-headphone-model"
+
+    var state: CurrentValueSubject<ConnectivityState, Never>
+
+    init() {
+        state = CurrentValueSubject(.connected(model: model))
+    }
 
     func getMimiHeadphoneIdentifier() -> MimiHeadphoneIdentifier? {
         switch state.value {
@@ -31,10 +37,8 @@ final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvid
         }
     }
 
-    /// Simulate headphone connection by setting the state to `connected` with mocked headphone model
-    func simulateHeadphoneConnection() {
-        let model = "mimi-partner-headphone-model"
-
-        state.send(.connected(model: model))
+    /// Simulate headphone connectivity state by setting the state to `connected` with mocked headphone model or `disconnected`
+    func simulateHeadphoneConnection(isConnected: Bool) {
+        state.send(isConnected ? .connected(model: model) : .disconnected )
     }
 }
