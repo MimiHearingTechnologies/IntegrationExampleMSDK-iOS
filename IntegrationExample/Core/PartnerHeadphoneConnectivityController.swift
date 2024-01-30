@@ -20,11 +20,7 @@ final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvid
 
     private let model = "mimi-partner-headphone-model"
 
-    var state: CurrentValueSubject<ConnectivityState, Never>
-
-    init() {
-        state = CurrentValueSubject(.connected(model: model))
-    }
+    var state: CurrentValueSubject<ConnectivityState, Never> = CurrentValueSubject(.disconnected)
 
     func getMimiHeadphoneIdentifier() -> MimiHeadphoneIdentifier? {
         switch state.value {
