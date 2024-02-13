@@ -34,7 +34,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     
     private func observeHeadphoneConnectivityState() {
         headphoneConnectivityController.state
-            .sink { state in
+            .sink { [weak self] state in
+                guard let self else { return }
+
                 switch state {
                     // Activate processing when headphones are connected
                 case .connected:
