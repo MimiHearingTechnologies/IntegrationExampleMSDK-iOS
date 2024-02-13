@@ -15,7 +15,6 @@ struct ProcessingView: View {
     @ObservedObject var viewModel: ProcessingViewModel
 
     @State var isHeadphoneConnected: Bool = true
-    @State private var cancellables = Set<AnyCancellable>()
     
     init(viewModel: ProcessingViewModel) {
         self.viewModel = viewModel
