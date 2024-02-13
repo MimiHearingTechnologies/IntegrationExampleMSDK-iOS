@@ -11,9 +11,9 @@ import MimiCoreKit
 
 struct ProcessingView: View {
     
-    @EnvironmentObject var appDelegate: AppDelegate
+    @EnvironmentObject var headphoneConnectivity: PartnerHeadphoneConnectivityController
     @ObservedObject var viewModel: ProcessingViewModel
-    
+
     @State var isHeadphoneConnected: Bool = true
     @State private var cancellables = Set<AnyCancellable>()
     
@@ -38,7 +38,7 @@ struct ProcessingView: View {
             HStack {
                 Toggle("Headphones connected", isOn: Binding<Bool>(get: { isHeadphoneConnected }, set: { value in
                     isHeadphoneConnected = value
-                    appDelegate.simulateHeadphoneConnection(isConnected: value)
+                    headphoneConnectivity.simulateHeadphoneConnection(isConnected: value)
                 }))
             }
         }

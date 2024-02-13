@@ -11,8 +11,8 @@ import Combine
 
 /// A mock headphone connectivity controller which simulates headphone connection and provides information on the currently connected headphone to the MSDK
 /// Documentation: https://mimihearingtechnologies.github.io/SDKDocs-iOS/master/connected-headphone-identification.html
-final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvider {
-    
+final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvider, ObservableObject {
+
     enum ConnectivityState {
         case disconnected
         case connected(model: String)

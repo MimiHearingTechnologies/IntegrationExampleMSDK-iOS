@@ -11,14 +11,15 @@ import MimiUXKit
 import MimiSDK
 import Combine
 
-final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
-    
+final class AppDelegate: NSObject, UIApplicationDelegate {
+
+    internal let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
+
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
-    private let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
     private var audioProcessingController: PartnerAudioProcessingController!
-    
+
     private var cancellables = Set<AnyCancellable>()
-    
+
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -29,11 +30,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         observeHeadphoneConnectivityState()
         
         return true
-    }
-    
-    // Simulate a headphone connection, and as a result, activate the processing session
-    func simulateHeadphoneConnection(isConnected: Bool) {
-        headphoneConnectivityController.simulateHeadphoneConnection(isConnected: isConnected)
     }
     
     private func observeHeadphoneConnectivityState() {
