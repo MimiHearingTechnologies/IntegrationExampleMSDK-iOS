@@ -13,7 +13,7 @@ import Combine
 /// Documentation: https://mimihearingtechnologies.github.io/SDKDocs-iOS/master/connected-headphone-identification.html
 final class PartnerHeadphoneConnectivityController: MimiConnectedHeadphoneProvider, ObservableObject {
 
-    enum ConnectivityState {
+    enum ConnectivityState: Equatable {
         case disconnected
         case connected(model: String)
     }

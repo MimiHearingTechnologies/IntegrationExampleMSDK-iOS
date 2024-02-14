@@ -13,7 +13,7 @@ import MimiCoreKit
 final class ProcessingViewModel: ObservableObject {
     
     var headphoneConnectivity: PartnerHeadphoneConnectivityController
-    @Published var isHeadphoneConnected: Bool = true
+    @Published var isHeadphoneConnected: Bool
 
     @Published var isEnabled: Bool
     @Published var intensity: Float
@@ -36,6 +36,7 @@ final class ProcessingViewModel: ObservableObject {
         self.intensity = session.intensity.value
         self.presetId = session.preset.value?.id
 
+        self.isHeadphoneConnected = headphoneConnectivity.state.value != .disconnected
         self.headphoneConnectivity = headphoneConnectivity
 
         self.isUserLoggedIn = authController.currentUser != nil
