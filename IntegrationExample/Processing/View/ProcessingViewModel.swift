@@ -5,12 +5,16 @@
 //  Created by Hozefa Indorewala on 09.01.23.
 //
 
+import SwiftUI
 import Foundation
 import Combine
 import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
     
+    @EnvironmentObject var headphoneConnectivity: PartnerHeadphoneConnectivityController
+
+    @Published var isHeadphoneConnected: Bool = true
     @Published var isEnabled: Bool
     @Published var intensity: Float
     @Published var presetId: String?

@@ -10,11 +10,8 @@ import Combine
 import MimiCoreKit
 
 struct ProcessingView: View {
-    
-    @EnvironmentObject var headphoneConnectivity: PartnerHeadphoneConnectivityController
-    @ObservedObject var viewModel: ProcessingViewModel
 
-    @State var isHeadphoneConnected: Bool = true
+    @ObservedObject private var viewModel: ProcessingViewModel
     
     init(viewModel: ProcessingViewModel) {
         self.viewModel = viewModel
@@ -25,7 +22,7 @@ struct ProcessingView: View {
             connectivityView
             
             parametersView
-                .opacity(isHeadphoneConnected ? 1 : 0)
+                .opacity(viewModel.isHeadphoneConnected ? 1 : 0)
         }
         .padding(.horizontal, 32)
     }
@@ -35,9 +32,9 @@ struct ProcessingView: View {
             Text("Headphone Connectivity")
                 .font(.title2)
             HStack {
-                Toggle("Headphones connected", isOn: Binding<Bool>(get: { isHeadphoneConnected }, set: { value in
-                    isHeadphoneConnected = value
-                    headphoneConnectivity.simulateHeadphoneConnection(isConnected: value)
+                Toggle("Headphones connected", isOn: Binding<Bool>(get: { viewModel.isHeadphoneConnected }, set: { value in
+                    viewModel.isHeadphoneConnected = value
+                    viewModel.headphoneConnectivity.simulateHeadphoneConnection(isConnected: value)
                 }))
             }
         }
