@@ -12,7 +12,7 @@ import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
     
-    @EnvironmentObject var headphoneConnectivity: PartnerHeadphoneConnectivityController
+    @ObservedObject var headphoneConnectivity: PartnerHeadphoneConnectivityController
     @Published var isHeadphoneConnected: Bool = true
 
     @Published var isEnabled: Bool
@@ -29,11 +29,14 @@ final class ProcessingViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(session: MimiProcessingSession, authController: MimiAuthController) {
+    init(session: MimiProcessingSession, 
+         authController: MimiAuthController,
+         headphoneConnectivity: PartnerHeadphoneConnectivityController) {
         self.isEnabled = session.isEnabled.value
         self.intensity = session.intensity.value
         self.presetId = session.preset.value?.id
-        
+        self.headphoneConnectivity = headphoneConnectivity
+
         self.isUserLoggedIn = authController.currentUser != nil
         
         self.session = session

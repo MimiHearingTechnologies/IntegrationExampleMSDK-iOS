@@ -19,8 +19,7 @@ struct IntegrationExampleApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(appDelegate.headphoneConnectivityController)
+            ContentView(headphoneConnectivity: appDelegate.headphoneConnectivityController)
         }
     }
 }
