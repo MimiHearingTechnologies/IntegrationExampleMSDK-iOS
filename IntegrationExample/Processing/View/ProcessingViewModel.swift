@@ -11,8 +11,7 @@ import Combine
 import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
-    
-    var headphoneConnectivity: PartnerHeadphoneConnectivityController
+
     @Published var isHeadphoneConnected: Bool
 
     @Published var isEnabled: Bool
@@ -22,6 +21,7 @@ final class ProcessingViewModel: ObservableObject {
     @Published var isUserLoggedIn: Bool
     
     private let session: MimiProcessingSession
+    private let headphoneConnectivity: PartnerHeadphoneConnectivityController
     
     private var isEnabledApplyCancellable: AnyCancellable?
     private var intensityApplyCancellable: AnyCancellable?
@@ -50,6 +50,7 @@ final class ProcessingViewModel: ObservableObject {
         authController.observable.addObserver(self)
         
         subscribeToSessionParameterUpdates()
+        subscribeToHeadphoneConnectivityState()
     }
     
     private func subscribeToSessionParameterUpdates() {
@@ -68,6 +69,19 @@ final class ProcessingViewModel: ObservableObject {
         session.preset.$value
             .sink { [weak self] value in
                 self?.presetId = value?.id
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func subscribeToHeadphoneConnectivityState() {
+        headphoneConnectivity.state
+            .sink { [weak self] connectivityState in
+                switch connectivityState {
+                case .disconnected:
+                    self?.isHeadphoneConnected = false
+                case .connected:
+                    self?.isHeadphoneConnected = true
+                }
             }
             .store(in: &cancellables)
     }
@@ -110,6 +124,10 @@ final class ProcessingViewModel: ObservableObject {
             } receiveValue: { [weak self] preset in
                 self?.presetId = preset?.id
             }
+    }
+    
+    func simulateHeadphoneConnection(isConnected: Bool) {
+        headphoneConnectivity.simulateHeadphoneConnection(isConnected: isConnected)
     }
 }
 

@@ -32,10 +32,9 @@ struct ProcessingView: View {
             Text("Headphone Connectivity")
                 .font(.title2)
             HStack {
-                Toggle("Headphones connected", isOn: Binding<Bool>(get: { viewModel.isHeadphoneConnected }, set: { value in
-                    viewModel.isHeadphoneConnected = value
-                    viewModel.headphoneConnectivity.simulateHeadphoneConnection(isConnected: value)
-                }))
+                Toggle("Headphones connected", 
+                       isOn: Binding<Bool>(get: { viewModel.isHeadphoneConnected},
+                                           set: { viewModel.simulateHeadphoneConnection(isConnected: $0) }))
             }
         }
     }
