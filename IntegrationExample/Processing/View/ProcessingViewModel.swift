@@ -35,6 +35,7 @@ final class ProcessingViewModel: ObservableObject {
         self.isEnabled = session.isEnabled.value
         self.intensity = session.intensity.value
         self.presetId = session.preset.value?.id
+
         self.headphoneConnectivity = headphoneConnectivity
 
         self.isUserLoggedIn = authController.currentUser != nil
