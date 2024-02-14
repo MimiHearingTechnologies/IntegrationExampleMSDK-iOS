@@ -14,7 +14,6 @@ import Combine
 final class AppDelegate: NSObject, UIApplicationDelegate {
 
     internal let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
-
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
     private var audioProcessingController: PartnerAudioProcessingController!
 
