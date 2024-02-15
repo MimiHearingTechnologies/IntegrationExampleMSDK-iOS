@@ -51,37 +51,37 @@ struct ProcessingView: View {
             HStack {
                 Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled },
                                                         set: { viewModel.applyIsEnabled($0) }))
-                VStack(spacing: 4.0) {
-                    HStack {
-                        Text("Intensity")
-                        Spacer()
-                        Text("\(viewModel.intensity)")
-                    }
-                    Slider(value:Binding<Float>(get: { viewModel.intensity },
-                                                                set: { viewModel.applyIntensity($0) })) {
-                        Text("Intensity")
-                    } minimumValueLabel: {
-                        Text("0")
-                    } maximumValueLabel: {
-                        Text("1")
-                    }
+            }
+            VStack(spacing: 4.0) {
+                HStack {
+                    Text("Intensity")
+                    Spacer()
+                    Text("\(viewModel.intensity)")
                 }
-                VStack {
-                    HStack {
-                        Text("Preset")
-                        Spacer()
-                        Text(viewModel.presetId ?? "nil")
-                            .font(.caption)
-                    }
-                    if viewModel.isUserLoggedIn {
-                        Button("Reload") {
-                            viewModel.reloadPreset()
+                Slider(value:Binding<Float>(get: { viewModel.intensity },
+                                            set: { viewModel.applyIntensity($0) })) {
+                    Text("Intensity")
+                } minimumValueLabel: {
+                    Text("0")
+                } maximumValueLabel: {
+                    Text("1")
+                }
+            }
+            VStack {
+                HStack {
+                    Text("Preset")
+                    Spacer()
+                    Text(viewModel.presetId ?? "nil")
+                        .font(.caption)
+                }
+                if viewModel.isUserLoggedIn {
+                    Button("Reload") {
+                        viewModel.reloadPreset()
 
-                        }
-                        .buttonStyle(.bordered)
-                    } else {
-                        Text("⚠️ User not logged in")
                     }
+                    .buttonStyle(.bordered)
+                } else {
+                    Text("⚠️ User not logged in")
                 }
             }
         }

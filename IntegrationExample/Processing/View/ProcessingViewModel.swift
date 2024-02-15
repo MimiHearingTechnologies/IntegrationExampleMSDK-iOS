@@ -68,9 +68,8 @@ final class ProcessingViewModel: ObservableObject {
                     return
                 }
 
-                self?.subscribeToSessionParameterUpdates(session: session)
-                self?.isHeadphoneConnected = true
                 self?.isSessionAvailable = true
+                self?.subscribeToSessionParameterUpdates(session: session)
             }
             .store(in: &cancellables)
     }
