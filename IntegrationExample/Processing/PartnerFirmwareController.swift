@@ -10,20 +10,20 @@ import MimiCoreKit
 
 /// A mock interface for communicating with the `Mimi Processing Library` on the Mimi enabled device's firmware.
 protocol FirmwareControlling {
-    
-    func getTechLevel() -> Int
-    
-    func getIsEnabled() -> Bool
+
+    func getTechLevel() async -> Int
+
+    func getIsEnabled() async -> Bool
     func setIsEnabled(_ value: Bool) async throws
 
-    func getIntensity() -> Float
+    func getIntensity() async -> Float
     func setIntensity(_ value: Float) async throws
 
     func setPreset(_ value: MimiPersonalization.Preset?) async throws
 }
 
-final class PartnerFirmwareController: FirmwareControlling {
-    
+final actor PartnerFirmwareController: FirmwareControlling {
+
     private struct Defaults {
         static let simulatedDelay: TimeInterval = 0.1
     }

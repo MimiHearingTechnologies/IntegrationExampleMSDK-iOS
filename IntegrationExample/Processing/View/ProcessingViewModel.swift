@@ -25,10 +25,6 @@ final class ProcessingViewModel: ObservableObject {
     private let core: MimiCore
     private let headphoneConnectivity: PartnerHeadphoneConnectivityController
     
-    private var isEnabledApplyCancellable: AnyCancellable?
-    private var intensityApplyCancellable: AnyCancellable?
-    private var presetReloadCancellable: AnyCancellable?
-    
     private var cancellables = Set<AnyCancellable>()
     
     private var session: MimiProcessingSession? {

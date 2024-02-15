@@ -34,8 +34,8 @@ final actor PartnerAudioProcessingController: ObservableObject {
     }
     
     private func makeIsEnabledApplicator(session: MimiProcessingSession, firmwareController: FirmwareControlling) async {
-        let isEnabledValue = firmwareController.getIsEnabled()
-        
+        let isEnabledValue = await firmwareController.getIsEnabled()
+
         // Create an isEnabled applicator that is in sync with the isEnabled value on the firmware.
         self.isEnabledApplicator = await session.isEnabled.addApplicator(apply: { [weak self] value in
             guard let self else { return }
@@ -55,8 +55,8 @@ final actor PartnerAudioProcessingController: ObservableObject {
     }
     
     private func makeIntensityApplicator(session: MimiProcessingSession, firmwareController: FirmwareControlling) async {
-        let intensityValue = firmwareController.getIntensity()
-        
+        let intensityValue = await firmwareController.getIntensity()
+
         // Create an intensity applicator that is in sync with the intensity value on the firmware.
         self.intensityApplicator = await session.intensity.addApplicator(apply: { [weak self] value in
             guard let self else { return }
