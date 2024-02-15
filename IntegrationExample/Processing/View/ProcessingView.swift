@@ -10,17 +10,17 @@ import Combine
 import MimiCoreKit
 
 struct ProcessingView: View {
-    
+
     @ObservedObject private var viewModel: ProcessingViewModel
-    
+
     init(viewModel: ProcessingViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         VStack(spacing: 64) {
             connectivityView
-            
+
             if viewModel.isSessionAvailable {
                 parametersView
             } else {
@@ -31,7 +31,7 @@ struct ProcessingView: View {
         .padding(.top, 40)
         .padding(.horizontal, 32)
     }
-    
+
     private var connectivityView: some View {
         VStack {
             Text("Headphone Connectivity")
@@ -43,7 +43,7 @@ struct ProcessingView: View {
             }
         }
     }
-    
+
     private var parametersView: some View {
         VStack(spacing: 32.0) {
             Text("Mimi Processing Parameters")
@@ -51,36 +51,37 @@ struct ProcessingView: View {
             HStack {
                 Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled },
                                                         set: { viewModel.applyIsEnabled($0) }))
-            }
-            VStack(spacing: 4.0) {
-                HStack {
-                    Text("Intensity")
-                    Spacer()
-                    Text("\(viewModel.intensity)")
-                }
-                Slider(value:Binding<Float>(get: { viewModel.intensity },
-                                            set: { viewModel.applyIntensity($0) })) {
-                    Text("Intensity")
-                } minimumValueLabel: {
-                    Text("0")
-                } maximumValueLabel: {
-                    Text("1")
-                }
-            }
-            VStack {
-                HStack {
-                    Text("Preset")
-                    Spacer()
-                    Text(viewModel.presetId ?? "nil")
-                        .font(.caption)
-                }
-                if viewModel.isUserLoggedIn {
-                    Button("Reload") {
-                        viewModel.reloadPreset()
+                VStack(spacing: 4.0) {
+                    HStack {
+                        Text("Intensity")
+                        Spacer()
+                        Text("\(viewModel.intensity)")
                     }
-                    .buttonStyle(.bordered)
-                } else {
-                    Text("⚠️ User not logged in")
+                    Slider(value:Binding<Float>(get: { viewModel.intensity },
+                                                                set: { viewModel.applyIntensity($0) })) {
+                        Text("Intensity")
+                    } minimumValueLabel: {
+                        Text("0")
+                    } maximumValueLabel: {
+                        Text("1")
+                    }
+                }
+                VStack {
+                    HStack {
+                        Text("Preset")
+                        Spacer()
+                        Text(viewModel.presetId ?? "nil")
+                            .font(.caption)
+                    }
+                    if viewModel.isUserLoggedIn {
+                        Button("Reload") {
+                            viewModel.reloadPreset()
+
+                        }
+                        .buttonStyle(.bordered)
+                    } else {
+                        Text("⚠️ User not logged in")
+                    }
                 }
             }
         }

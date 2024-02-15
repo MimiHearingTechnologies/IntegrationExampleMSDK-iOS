@@ -14,12 +14,12 @@ protocol FirmwareControlling {
     func getTechLevel() -> Int
     
     func getIsEnabled() -> Bool
-    func setIsEnabled(_ value: Bool, resultHandler: @escaping (Result<Bool, Error>) -> Void)
-    
+    func setIsEnabled(_ value: Bool) async throws
+
     func getIntensity() -> Float
-    func setIntensity(_ value: Float, resultHandler: @escaping (Result<Float, Error>) -> Void)
-    
-    func setPreset(_ value: MimiPersonalization.Preset?, resultHandler: @escaping (Result<MimiPersonalization.Preset?, Error>) -> Void)
+    func setIntensity(_ value: Float) async throws
+
+    func setPreset(_ value: MimiPersonalization.Preset?) async throws
 }
 
 final class PartnerFirmwareController: FirmwareControlling {
@@ -39,27 +39,25 @@ final class PartnerFirmwareController: FirmwareControlling {
         return isEnabled
     }
     
-    func setIsEnabled(_ value: Bool, resultHandler: @escaping (Result<Bool, Error>) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Defaults.simulatedDelay) {
-            self.isEnabled = value
-            resultHandler(.success(value))
-        }
+    func setIsEnabled(_ value: Bool) async throws {
+        try await Task.sleep(for: .seconds(Defaults.simulatedDelay))
+
+        self.isEnabled = value
     }
     
     func getIntensity() -> Float {
         return intensity
     }
     
-    func setIntensity(_ value: Float, resultHandler: @escaping (Result<Float, Error>) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Defaults.simulatedDelay) {
-            self.intensity = value
-            resultHandler(.success(value))
-        }
+    func setIntensity(_ value: Float) async throws {
+        try await Task.sleep(for: .seconds(Defaults.simulatedDelay))
+
+        self.intensity = value
     }
     
-    func setPreset(_ value: MimiCoreKit.MimiPersonalization.Preset?, resultHandler: @escaping (Result<MimiCoreKit.MimiPersonalization.Preset?, Error>) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Defaults.simulatedDelay) {
-            resultHandler(.success(value))
-        }
+    func setPreset(_ value: MimiCoreKit.MimiPersonalization.Preset?) async throws {
+        try await Task.sleep(for: .seconds(Defaults.simulatedDelay))
+
+        // set preset
     }
 }

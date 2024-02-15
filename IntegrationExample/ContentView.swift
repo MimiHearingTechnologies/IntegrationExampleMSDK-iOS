@@ -24,8 +24,7 @@ struct ContentView: View {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }
 
-            ProcessingView(viewModel: ProcessingViewModel(core: .shared,
-                                                          headphoneConnectivity: headphoneConnectivity))
+            ProcessingView(viewModel: ProcessingViewModel(headphoneConnectivity: headphoneConnectivity))
             .tabItem {
                 Label("Processing", systemImage: "waveform")
             }
