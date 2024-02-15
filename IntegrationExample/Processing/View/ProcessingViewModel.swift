@@ -11,7 +11,7 @@ import Combine
 import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
-
+    
     @Published var isHeadphoneConnected: Bool
     
     @Published var isSessionAvailable: Bool
@@ -43,9 +43,9 @@ final class ProcessingViewModel: ObservableObject {
         self.isEnabled = core.processing.session.value?.isEnabled.value ?? false
         self.intensity = core.processing.session.value?.intensity.value ?? 0
         self.presetId = core.processing.session.value?.preset.value?.id
-
+        
         self.isHeadphoneConnected = headphoneConnectivity.state.value != .disconnected
-
+        
         self.isUserLoggedIn = core.auth.currentUser != nil
         
         core.auth.observable.addObserver(self)
@@ -55,22 +55,22 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     private func subscribeToProcessingSession() {
-         core.processing.session
-             .sink { [weak self] session in
-                 guard let session else {
-                     self?.isSessionAvailable = false
-                     return
-                 }
-                 // Since the Slider sends updates continously, setting the delivery mode to discreet
-                 // allows us to debounce the updates.
-                 session.intensity.deliveryMode = .discrete(seconds: 0.2)
-                 self?.isSessionAvailable = true
-                 self?.subscribeToSessionParameterUpdates(session: session)
-             }
-             .store(in: &cancellables)
-     }
-     
-     private func subscribeToSessionParameterUpdates(session: MimiProcessingSession) {
+        core.processing.session
+            .sink { [weak self] session in
+                guard let session else {
+                    self?.isSessionAvailable = false
+                    return
+                }
+                // Since the Slider sends updates continously, setting the delivery mode to discreet
+                // allows us to debounce the updates.
+                session.intensity.deliveryMode = .discrete(seconds: 0.2)
+                self?.isSessionAvailable = true
+                self?.subscribeToSessionParameterUpdates(session: session)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func subscribeToSessionParameterUpdates(session: MimiProcessingSession) {
         session.isEnabled.$value
             .sink { [weak self] value in
                 self?.isEnabled = value

@@ -49,7 +49,7 @@ struct ProcessingView: View {
             Text("Mimi Processing Parameters")
                 .font(.title2)
             HStack {
-                Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled }, 
+                Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled },
                                                         set: { viewModel.applyIsEnabled($0) }))
             }
             VStack(spacing: 4.0) {
