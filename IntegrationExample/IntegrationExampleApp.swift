@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import MimiCoreKit
 
 @main
 struct IntegrationExampleApp: App {
-    
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
+    init() {
+        appDelegate.headphoneConnectivityController.simulateHeadphoneConnection(isConnected: true)
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(headphoneConnectivity: appDelegate.headphoneConnectivityController)
         }
     }
 }

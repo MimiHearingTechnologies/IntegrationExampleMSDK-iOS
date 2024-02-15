@@ -6,17 +6,40 @@
 //
 
 import SwiftUI
+import Combine
 import MimiCoreKit
 
 struct ProcessingView: View {
-    
-    @ObservedObject var viewModel: ProcessingViewModel
+
+    @ObservedObject private var viewModel: ProcessingViewModel
     
     init(viewModel: ProcessingViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
+        VStack(spacing: 64) {
+            connectivityView
+            
+            parametersView
+                .opacity(viewModel.isHeadphoneConnected ? 1 : 0)
+        }
+        .padding(.horizontal, 32)
+    }
+    
+    private var connectivityView: some View {
+        VStack {
+            Text("Headphone Connectivity")
+                .font(.title2)
+            HStack {
+                Toggle("Headphones connected", 
+                       isOn: Binding<Bool>(get: { viewModel.isHeadphoneConnected},
+                                           set: { viewModel.simulateHeadphoneConnection(isConnected: $0) }))
+            }
+        }
+    }
+    
+    private var parametersView: some View {
         VStack(spacing: 32.0) {
             Text("Mimi Processing Parameters")
                 .font(.title2)
@@ -58,6 +81,5 @@ struct ProcessingView: View {
                 }
             }
         }
-        .padding(32.0)
     }
 }

@@ -9,25 +9,50 @@ import Foundation
 import MimiCoreKit
 import MimiUXKit
 import MimiSDK
+import Combine
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
-    
+
+    let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
-    private let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
     private var audioProcessingController: PartnerAudioProcessingController!
-    
+
+    private var cancellables = Set<AnyCancellable>()
+
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         startMimiCore()
-        do {
-            let session = try activateMimiProcessing(techLevel: firmwareController.getTechLevel())
-            self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: firmwareController)
-        } catch {
-            fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
-        }
+        
+        // Observe headphone connectivity state changes
+        observeHeadphoneConnectivityState()
+        
         return true
+    }
+    
+    private func observeHeadphoneConnectivityState() {
+        headphoneConnectivityController.state
+            .sink { [weak self] state in
+                guard let self else { return }
+
+                switch state {
+                    // Activate processing when headphones are connected
+                case .connected:
+                    do {
+                        let session = try self.activateMimiProcessing(techLevel: self.firmwareController.getTechLevel())
+                        self.audioProcessingController = PartnerAudioProcessingController(session: session, firmwareController: self.firmwareController)
+                    } catch {
+                        fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
+                    }
+                case .disconnected:
+                    // Handle headphone disconnected state
+                    MimiCore.shared.processing.deactivate()
+                    
+                    return
+                }
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: MimiSDK

@@ -5,12 +5,15 @@
 //  Created by Hozefa Indorewala on 09.01.23.
 //
 
+import SwiftUI
 import Foundation
 import Combine
 import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
-    
+
+    @Published var isHeadphoneConnected: Bool
+
     @Published var isEnabled: Bool
     @Published var intensity: Float
     @Published var presetId: String?
@@ -18,6 +21,7 @@ final class ProcessingViewModel: ObservableObject {
     @Published var isUserLoggedIn: Bool
     
     private let session: MimiProcessingSession
+    private let headphoneConnectivity: PartnerHeadphoneConnectivityController
     
     private var isEnabledApplyCancellable: AnyCancellable?
     private var intensityApplyCancellable: AnyCancellable?
@@ -25,11 +29,16 @@ final class ProcessingViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(session: MimiProcessingSession, authController: MimiAuthController) {
+    init(session: MimiProcessingSession, 
+         authController: MimiAuthController,
+         headphoneConnectivity: PartnerHeadphoneConnectivityController) {
         self.isEnabled = session.isEnabled.value
         self.intensity = session.intensity.value
         self.presetId = session.preset.value?.id
-        
+
+        self.isHeadphoneConnected = headphoneConnectivity.state.value != .disconnected
+        self.headphoneConnectivity = headphoneConnectivity
+
         self.isUserLoggedIn = authController.currentUser != nil
         
         self.session = session
@@ -41,6 +50,7 @@ final class ProcessingViewModel: ObservableObject {
         authController.observable.addObserver(self)
         
         subscribeToSessionParameterUpdates()
+        subscribeToHeadphoneConnectivityState()
     }
     
     private func subscribeToSessionParameterUpdates() {
@@ -59,6 +69,19 @@ final class ProcessingViewModel: ObservableObject {
         session.preset.$value
             .sink { [weak self] value in
                 self?.presetId = value?.id
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func subscribeToHeadphoneConnectivityState() {
+        headphoneConnectivity.state
+            .sink { [weak self] connectivityState in
+                switch connectivityState {
+                case .disconnected:
+                    self?.isHeadphoneConnected = false
+                case .connected:
+                    self?.isHeadphoneConnected = true
+                }
             }
             .store(in: &cancellables)
     }
@@ -101,6 +124,10 @@ final class ProcessingViewModel: ObservableObject {
             } receiveValue: { [weak self] preset in
                 self?.presetId = preset?.id
             }
+    }
+    
+    func simulateHeadphoneConnection(isConnected: Bool) {
+        headphoneConnectivity.simulateHeadphoneConnection(isConnected: isConnected)
     }
 }
 
