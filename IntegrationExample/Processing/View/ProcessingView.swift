@@ -10,7 +10,7 @@ import Combine
 import MimiCoreKit
 
 struct ProcessingView: View {
-
+    
     @ObservedObject private var viewModel: ProcessingViewModel
     
     init(viewModel: ProcessingViewModel) {
@@ -21,9 +21,14 @@ struct ProcessingView: View {
         VStack(spacing: 64) {
             connectivityView
             
-            parametersView
-                .opacity(viewModel.isHeadphoneConnected ? 1 : 0)
+            if viewModel.isSessionAvailable {
+                parametersView
+            } else {
+                Text("Mimi Processing Session Unavailable")
+            }
+            Spacer()
         }
+        .padding(.top, 40)
         .padding(.horizontal, 32)
     }
     
@@ -32,7 +37,7 @@ struct ProcessingView: View {
             Text("Headphone Connectivity")
                 .font(.title2)
             HStack {
-                Toggle("Headphones connected", 
+                Toggle("Headphones connected",
                        isOn: Binding<Bool>(get: { viewModel.isHeadphoneConnected},
                                            set: { viewModel.simulateHeadphoneConnection(isConnected: $0) }))
             }
@@ -44,9 +49,8 @@ struct ProcessingView: View {
             Text("Mimi Processing Parameters")
                 .font(.title2)
             HStack {
-                Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled }, set: { value in
-                    viewModel.applyIsEnabled(value)
-                }))
+                Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled }, 
+                                                        set: { viewModel.applyIsEnabled($0) }))
             }
             VStack(spacing: 4.0) {
                 HStack {
@@ -54,9 +58,8 @@ struct ProcessingView: View {
                     Spacer()
                     Text("\(viewModel.intensity)")
                 }
-                Slider(value:Binding<Float>(get: { viewModel.intensity }, set: { value in
-                    viewModel.applyIntensity(value)
-                })) {
+                Slider(value:Binding<Float>(get: { viewModel.intensity },
+                                            set: { viewModel.applyIntensity($0) })) {
                     Text("Intensity")
                 } minimumValueLabel: {
                     Text("0")

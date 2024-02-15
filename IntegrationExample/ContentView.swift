@@ -24,15 +24,8 @@ struct ContentView: View {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }
 
-            Group {
-                if let session = MimiCore.shared.processing.session.value {
-                    ProcessingView(viewModel: ProcessingViewModel(session: session,
-                                                                  authController: MimiCore.shared.auth,
-                                                                  headphoneConnectivity: headphoneConnectivity))
-                } else {
-                    Text("Mimi Processing Session Unavailable")
-                }
-            }
+            ProcessingView(viewModel: ProcessingViewModel(core: .shared,
+                                                          headphoneConnectivity: headphoneConnectivity))
             .tabItem {
                 Label("Processing", systemImage: "waveform")
             }
