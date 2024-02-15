@@ -25,6 +25,10 @@ final class ProcessingViewModel: ObservableObject {
     private let core: MimiCore
     private let headphoneConnectivity: PartnerHeadphoneConnectivityController
     
+    private var isEnabledApplyCancellable: AnyCancellable?
+    private var intensityApplyCancellable: AnyCancellable?
+    private var presetReloadCancellable: AnyCancellable?
+    
     private var cancellables = Set<AnyCancellable>()
     
     private var session: MimiProcessingSession? {
@@ -71,26 +75,23 @@ final class ProcessingViewModel: ObservableObject {
     }
 
     private func subscribeToSessionParameterUpdates(session: MimiProcessingSession) {
-        session.isEnabled.valuePublisher
+        isEnabledApplyCancellable = session.isEnabled.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.isEnabled = value
             }
-            .store(in: &cancellables)
         
-        session.intensity.valuePublisher
+        intensityApplyCancellable = session.intensity.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.intensity = value
             }
-            .store(in: &cancellables)
         
-        session.preset.valuePublisher
+        presetReloadCancellable = session.preset.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.presetId = value?.id
             }
-            .store(in: &cancellables)
     }
 
     private func subscribeToHeadphoneConnectivityState() {
