@@ -11,16 +11,17 @@ import Combine
 import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
-
+    
     @Published var isHeadphoneConnected: Bool
-
+    
+    @Published var isSessionAvailable: Bool
     @Published var isEnabled: Bool
     @Published var intensity: Float
     @Published var presetId: String?
     
     @Published var isUserLoggedIn: Bool
     
-    private let session: MimiProcessingSession
+    private let core: MimiCore
     private let headphoneConnectivity: PartnerHeadphoneConnectivityController
     
     private var isEnabledApplyCancellable: AnyCancellable?
@@ -29,31 +30,47 @@ final class ProcessingViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(session: MimiProcessingSession, 
-         authController: MimiAuthController,
+    private var session: MimiProcessingSession? {
+        core.processing.session.value
+    }
+    
+    init(core: MimiCore,
          headphoneConnectivity: PartnerHeadphoneConnectivityController) {
-        self.isEnabled = session.isEnabled.value
-        self.intensity = session.intensity.value
-        self.presetId = session.preset.value?.id
-
-        self.isHeadphoneConnected = headphoneConnectivity.state.value != .disconnected
+        self.core = core
         self.headphoneConnectivity = headphoneConnectivity
-
-        self.isUserLoggedIn = authController.currentUser != nil
         
-        self.session = session
+        self.isSessionAvailable = core.processing.session.value != nil
+        self.isEnabled = core.processing.session.value?.isEnabled.value ?? false
+        self.intensity = core.processing.session.value?.intensity.value ?? 0
+        self.presetId = core.processing.session.value?.preset.value?.id
         
-        // Since the Slider sends updates continously, setting the delivery mode to discreet
-        // allows us to debounce the updates.
-        session.intensity.deliveryMode = .discrete(seconds: 0.2)
+        self.isHeadphoneConnected = headphoneConnectivity.state.value != .disconnected
         
-        authController.observable.addObserver(self)
+        self.isUserLoggedIn = core.auth.currentUser != nil
         
-        subscribeToSessionParameterUpdates()
+        core.auth.observable.addObserver(self)
+        
+        subscribeToProcessingSession()
         subscribeToHeadphoneConnectivityState()
     }
     
-    private func subscribeToSessionParameterUpdates() {
+    private func subscribeToProcessingSession() {
+        core.processing.session
+            .sink { [weak self] session in
+                guard let session else {
+                    self?.isSessionAvailable = false
+                    return
+                }
+                // Since the Slider sends updates continously, setting the delivery mode to discreet
+                // allows us to debounce the updates.
+                session.intensity.deliveryMode = .discrete(seconds: 0.2)
+                self?.isSessionAvailable = true
+                self?.subscribeToSessionParameterUpdates(session: session)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func subscribeToSessionParameterUpdates(session: MimiProcessingSession) {
         session.isEnabled.$value
             .sink { [weak self] value in
                 self?.isEnabled = value
@@ -90,7 +107,7 @@ final class ProcessingViewModel: ObservableObject {
         let oldValue = isEnabled
         isEnabled = newValue
         
-        isEnabledApplyCancellable = session.isEnabled.apply(newValue)
+        isEnabledApplyCancellable = session?.isEnabled.apply(newValue)
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
@@ -106,7 +123,7 @@ final class ProcessingViewModel: ObservableObject {
         let oldValue = intensity
         intensity = newValue
         
-        intensityApplyCancellable = session.intensity.apply(newValue)
+        intensityApplyCancellable = session?.intensity.apply(newValue)
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:
@@ -119,7 +136,7 @@ final class ProcessingViewModel: ObservableObject {
     }
     
     func reloadPreset() {
-        presetReloadCancellable = session.preset.reload()
+        presetReloadCancellable = session?.preset.reload()
             .sink { _ in
             } receiveValue: { [weak self] preset in
                 self?.presetId = preset?.id
