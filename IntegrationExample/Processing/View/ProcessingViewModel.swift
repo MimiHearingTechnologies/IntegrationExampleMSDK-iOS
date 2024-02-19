@@ -108,21 +108,31 @@ final class ProcessingViewModel: ObservableObject {
     // MARK: - Parameter value application
 
     func applyIsEnabled(_ newValue: Bool) {
+        let oldValue = isEnabled
+        isEnabled = newValue
+        
         Task {
             do {
                 try await session?.isEnabled.apply(newValue)
             } catch {
-                // handle error
+                await MainActor.run {
+                    isEnabled = oldValue
+                }
             }
         }
     }
     
     func applyIntensity(_ newValue: Float) {
+        let oldValue = intensity
+        intensity = newValue
+        
         Task {
             do {
                 try await session?.intensity.apply(newValue)
             } catch {
-                // handle error
+                await MainActor.run {
+                    intensity = oldValue
+                }
             }
         }
     }

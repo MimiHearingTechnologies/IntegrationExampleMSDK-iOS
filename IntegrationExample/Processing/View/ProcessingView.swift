@@ -58,8 +58,9 @@ struct ProcessingView: View {
                     Spacer()
                     Text("\(viewModel.intensity)")
                 }
-                Slider(value:Binding<Float>(get: { viewModel.intensity },
-                                            set: { viewModel.applyIntensity($0) })) {
+                
+                DebounceSliderView(value: Binding<Float>(get: { viewModel.intensity },
+                                                         set: { viewModel.applyIntensity($0) })) {
                     Text("Intensity")
                 } minimumValueLabel: {
                     Text("0")
@@ -77,7 +78,6 @@ struct ProcessingView: View {
                 if viewModel.isUserLoggedIn {
                     Button("Reload") {
                         viewModel.reloadPreset()
-
                     }
                     .buttonStyle(.bordered)
                 } else {
