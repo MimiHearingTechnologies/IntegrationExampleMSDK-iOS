@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import SwiftUI
 import Combine
 import MimiCoreKit
 
 /// A mock audio processing controller which illustrates the usage of Mimi Processing Parameter Applicators.
-final actor PartnerAudioProcessingController: ObservableObject {
+final actor PartnerAudioProcessingController {
 
     private let session: MimiProcessingSession
     private let firmwareController: FirmwareControlling

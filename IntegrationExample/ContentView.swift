@@ -12,14 +12,16 @@ import MimiCoreKit
 struct ContentView: View {
 
     private var headphoneConnectivity: PartnerHeadphoneConnectivityController
-
+    private let mimiProfileConfiguration: MimiProfileConfiguration
     init(headphoneConnectivity: PartnerHeadphoneConnectivityController) {
         self.headphoneConnectivity = headphoneConnectivity
+//        You can set `uiControlDebounceBehavior`, if you want to have a debounce behavior applied to the Processing UI controls on the Mimi Profile.
+        self.mimiProfileConfiguration = MimiProfileConfiguration(personalization: MimiPersonalizationConfiguration(uiControlDebounceBehavior: .debounce(seconds: 0.1)))
     }
 
     var body: some View {
         TabView {
-            MimiProfileView(configuration: MimiProfileConfiguration())
+            MimiProfileView(configuration: mimiProfileConfiguration)
                 .tabItem {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }

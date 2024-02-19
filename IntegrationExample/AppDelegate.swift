@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 import MimiCoreKit
 import MimiUXKit
 import MimiSDK
@@ -75,21 +74,21 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     private func activateMimiProcessing(techLevel: Int) async throws -> MimiProcessingSession {
-//        let processing = MimiCore.shared.processing
+        let processing = MimiCore.shared.processing
         
-        // In the following, the session is activated with processing configuration which provides (if available) a range of 3 presets - up, default & down. The UpDown datasource is the data source to be used for the so called Fine-tuning feature.
+        // In the following, the session is activated with processing configuration.
         let fitting = MimiPersonalization.Fitting.techLevel(techLevel)
         let configuration = mimiProcessingConfiguration {
                                 Personalization {
+                                    // The FineTuning (which is the recommended option) mode provides (if available) a range of 3 presets - up, default & down.
                                     FineTuning(fitting: fitting)
+                                    
+                                    // If only a Single Preset type of Personalization, is desired.
+                                    // SinglePreset(fitting: fitting)
                                 }
                             }
 
-        return try await MimiCore.shared.processing.activate(configuration: configuration)
-
-        // If only 1 preset, is desired, the Default datasource is to be used as follows.
-//        let fitting = MimiPersonalization.Fitting.techLevel(techLevel)
-//        return try processing.activate(presetDataSource: .default(.init(fitting: fitting)))
+        return try await processing.activate(configuration: configuration)
     }
 }
 

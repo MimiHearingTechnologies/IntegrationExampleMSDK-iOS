@@ -5,7 +5,6 @@
 //  Created by Hozefa Indorewala on 09.01.23.
 //
 
-import SwiftUI
 import Foundation
 import Combine
 import MimiCoreKit
@@ -17,7 +16,6 @@ final class ProcessingViewModel: ObservableObject {
     @Published var isSessionAvailable: Bool
     @Published var isEnabled: Bool = false
     @Published var intensity: Float = 0.0
-
     @Published var presetId: String?
     
     @Published var isUserLoggedIn: Bool
@@ -111,27 +109,21 @@ final class ProcessingViewModel: ObservableObject {
     // MARK: - Parameter value application
 
     func applyIsEnabled(_ newValue: Bool) {
-        let oldValue = isEnabled
-        isEnabled = newValue
-
         Task {
             do {
                 try await session?.isEnabled.apply(newValue)
             } catch {
-                isEnabled = oldValue
+                // handle error
             }
         }
     }
     
     func applyIntensity(_ newValue: Float) {
-        let oldValue = intensity
-        intensity = newValue
-        
         Task {
             do {
                 try await session?.intensity.apply(newValue)
             } catch {
-                intensity = oldValue
+                // handle error
             }
         }
     }
