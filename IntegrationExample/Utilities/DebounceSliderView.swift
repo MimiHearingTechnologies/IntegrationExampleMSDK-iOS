@@ -9,18 +9,6 @@ import SwiftUI
 import Combine
 
 struct DebounceSliderView<Label, ValueLabel> : View where Label : View, ValueLabel : View {
-    private class DebounceSliderViewModel : ObservableObject {
-        @Published var debouncedValue: Float
-        @Published var value: Float
-        
-        init(value: Float, debounce: Double) {
-            self.value = value
-            debouncedValue = value
-            $value
-                .debounce(for: .seconds(debounce), scheduler: DispatchQueue.main)
-                .assign(to: &$debouncedValue)
-        }
-    }
     
     @Binding var value: Float
     @StateObject private var viewModel: DebounceSliderViewModel
@@ -50,5 +38,21 @@ struct DebounceSliderView<Label, ValueLabel> : View where Label : View, ValueLab
         .onAppear(perform: {
             viewModel.value = value
         })
+    }
+}
+
+extension DebounceSliderView {
+    
+    private class DebounceSliderViewModel : ObservableObject {
+        @Published var debouncedValue: Float
+        @Published var value: Float
+        
+        init(value: Float, debounce: Double) {
+            self.value = value
+            debouncedValue = value
+            $value
+                .debounce(for: .seconds(debounce), scheduler: DispatchQueue.main)
+                .assign(to: &$debouncedValue)
+        }
     }
 }

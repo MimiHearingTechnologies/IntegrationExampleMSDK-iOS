@@ -91,6 +91,7 @@
 				BDC31C09295DC1A3002C7F65 /* Profile */,
 				BD7A05E2295EFD2100604BE9 /* Processing */,
 				BD3C1D6729D5855E00062126 /* Core */,
+				BD325C472B84653A00C08401 /* Utilities */,
 				BD305DAC295CBC8C001203EE /* Generated */,
 				BDE098932A8E28A800E6506D /* Resources */,
 				BD305DAF295CBC8C001203EE /* Assets.xcassets */,
@@ -113,6 +114,14 @@
 				BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD325C472B84653A00C08401 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2F55FB2A2B83C98A000D7543 /* DebounceSliderView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BD3C1D6729D5855E00062126 /* Core */ = {
@@ -184,7 +193,6 @@
 			children = (
 				BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */,
 				BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */,
-				2F55FB2A2B83C98A000D7543 /* DebounceSliderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
