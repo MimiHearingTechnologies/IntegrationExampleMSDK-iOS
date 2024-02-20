@@ -10,17 +10,17 @@ import Combine
 import MimiCoreKit
 
 struct ProcessingView: View {
-    
+
     @ObservedObject private var viewModel: ProcessingViewModel
-    
+
     init(viewModel: ProcessingViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         VStack(spacing: 64) {
             connectivityView
-            
+
             if viewModel.isSessionAvailable {
                 parametersView
             } else {
@@ -31,7 +31,7 @@ struct ProcessingView: View {
         .padding(.top, 40)
         .padding(.horizontal, 32)
     }
-    
+
     private var connectivityView: some View {
         VStack {
             Text("Headphone Connectivity")
@@ -43,7 +43,7 @@ struct ProcessingView: View {
             }
         }
     }
-    
+
     private var parametersView: some View {
         VStack(spacing: 32.0) {
             Text("Mimi Processing Parameters")
@@ -58,8 +58,9 @@ struct ProcessingView: View {
                     Spacer()
                     Text("\(viewModel.intensity)")
                 }
-                Slider(value:Binding<Float>(get: { viewModel.intensity },
-                                            set: { viewModel.applyIntensity($0) })) {
+                
+                DebouncedSlider(value: Binding<Float>(get: { viewModel.intensity },
+                                                      set: { viewModel.applyIntensity($0) })) {
                     Text("Intensity")
                 } minimumValueLabel: {
                     Text("0")

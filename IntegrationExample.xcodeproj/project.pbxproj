@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10B3B0F12B285A2A001934CB /* MimiSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 10B3B0F02B285A2A001934CB /* MimiSDK */; };
+		2F55FB2B2B83C98A000D7543 /* DebouncedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F55FB2A2B83C98A000D7543 /* DebouncedSlider.swift */; };
 		BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DAF295CBC8C001203EE /* Assets.xcassets */; };
 		BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6829D5858B00062126 /* CoreView.swift */; };
 		BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6D29D599D600062126 /* TestViewModel.swift */; };
@@ -29,6 +30,7 @@
 		2F4665EB2AF3B2F000C2C900 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = Localizations/pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F4665EC2AF3B30200C2C900 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "Localizations/en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2F4665ED2AF3B31800C2C900 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = Localizations/nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F55FB2A2B83C98A000D7543 /* DebouncedSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncedSlider.swift; sourceTree = "<group>"; };
 		BD0FD891299A72D80013099D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		BD305DA8295CAD00001203EE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationExampleApp.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				BDC31C09295DC1A3002C7F65 /* Profile */,
 				BD7A05E2295EFD2100604BE9 /* Processing */,
 				BD3C1D6729D5855E00062126 /* Core */,
+				BD325C472B84653A00C08401 /* Utilities */,
 				BD305DAC295CBC8C001203EE /* Generated */,
 				BDE098932A8E28A800E6506D /* Resources */,
 				BD305DAF295CBC8C001203EE /* Assets.xcassets */,
@@ -111,6 +114,14 @@
 				BD305DB1295CBC8C001203EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD325C472B84653A00C08401 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2F55FB2A2B83C98A000D7543 /* DebouncedSlider.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BD3C1D6729D5855E00062126 /* Core */ = {
@@ -234,7 +245,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					BD457B15295C3E710000EE19 = {
 						CreatedOnToolsVersion = 14.1;
@@ -326,6 +337,7 @@
 				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
 				BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */,
 				BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */,
+				2F55FB2B2B83C98A000D7543 /* DebouncedSlider.swift in Sources */,
 				BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */,
 				BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */,
 				BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */,
@@ -408,6 +420,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -470,6 +483,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -593,7 +607,7 @@
 			repositoryURL = "https://github.com/MimiHearingTechnologies/SDK-iOS-Binaries.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.2.0;
+				minimumVersion = 10.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
