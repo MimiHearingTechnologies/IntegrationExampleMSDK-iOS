@@ -25,7 +25,7 @@ protocol FirmwareControlling {
 final actor PartnerFirmwareController: FirmwareControlling {
 
     private struct Defaults {
-        static let simulatedDelay: TimeInterval = 0.1
+        static let simulatedDelay: UInt64 = 100_000_000 // 0.1 seconds
     }
     
     private var isEnabled = true
@@ -40,7 +40,7 @@ final actor PartnerFirmwareController: FirmwareControlling {
     }
     
     func setIsEnabled(_ value: Bool) async throws {
-        try await Task.sleep(for: .seconds(Defaults.simulatedDelay))
+        try await Task.sleep(nanoseconds: Defaults.simulatedDelay)
 
         self.isEnabled = value
     }
@@ -50,13 +50,13 @@ final actor PartnerFirmwareController: FirmwareControlling {
     }
     
     func setIntensity(_ value: Float) async throws {
-        try await Task.sleep(for: .seconds(Defaults.simulatedDelay))
+        try await Task.sleep(nanoseconds: Defaults.simulatedDelay)
 
         self.intensity = value
     }
     
     func setPreset(_ value: MimiCoreKit.MimiPersonalization.Preset?) async throws {
-        try await Task.sleep(for: .seconds(Defaults.simulatedDelay))
+        try await Task.sleep(nanoseconds: Defaults.simulatedDelay)
 
         // set preset
     }
