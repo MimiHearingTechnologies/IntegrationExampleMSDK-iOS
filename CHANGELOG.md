@@ -36,4 +36,5 @@
 ## 5.1.0
 - Update MSDK to v10.1.0
 
-
+## 5.1.1
+- Fix logging error on Xcode 15.3 on App launch
