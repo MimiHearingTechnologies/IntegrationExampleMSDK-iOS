@@ -26,3 +26,14 @@
 ## 4.0.0
 - Integrate MSDK via Swift Package Manager
 - Update MSDK to v9.2.0
+
+## 5.0.0
+- Update MSDK to v10.0.0
+
+## 5.0.1
+- Update MSDK to v10.0.1
+
+## 5.1.0
+- Update MSDK to v10.1.0
+
+
