@@ -1,5 +1,5 @@
 //
-//  ProcessingViewModel.swift
+//  ProcessingParametersViewModel.swift
 //  IntegrationExample
 //
 //  Created by Hozefa Indorewala on 09.01.23.
@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import MimiCoreKit
 
-final class ProcessingViewModel: ObservableObject {
+final class ProcessingParametersViewModel: ObservableObject {
 
     @Published var isEnabled: Bool = false
     @Published var intensity: Float = 0.0
@@ -103,7 +103,7 @@ final class ProcessingViewModel: ObservableObject {
     }
 }
 
-extension ProcessingViewModel: MimiAuthControllerObservable {
+extension ProcessingParametersViewModel: MimiAuthControllerObservable {
     
     func authController(_ controller: MimiCoreKit.MimiAuthController, didUpdate currentUser: MimiCoreKit.MimiUser?, from oldUser: MimiCoreKit.MimiUser?, error: MimiCoreKit.MimiCoreError?) {
         self.isUserLoggedIn = currentUser != nil
