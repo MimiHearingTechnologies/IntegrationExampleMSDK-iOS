@@ -24,7 +24,7 @@ struct ProcessingView: View {
     }
 
     var body: some View {
-        VStack(spacing: 64) {
+        VStack(spacing: 48) {
             HeadphoneConnectivityView(viewModel: HeadphoneConnectivityViewModel(headphoneConnectivity: headphoneConnectivity) )
 
             if let session {

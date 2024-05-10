@@ -14,7 +14,6 @@ final class ProcessingParametersViewModel: ObservableObject {
     @Published var isEnabled: Bool = false
     @Published var intensity: Float = 0.0
     @Published var presetId: String?
-    
     @Published var isUserLoggedIn: Bool
 
     private let session: MimiProcessingSession
@@ -30,8 +29,6 @@ final class ProcessingParametersViewModel: ObservableObject {
         auth.observable.addObserver(self)
         subscribeToSessionParameterUpdates(session: session)
     }
-
-    
 
     // MARK: - Subscribers
 
@@ -57,8 +54,6 @@ final class ProcessingParametersViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
-    
 
     // MARK: - Parameter value application
 

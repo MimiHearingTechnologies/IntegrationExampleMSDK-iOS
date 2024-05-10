@@ -16,7 +16,7 @@ struct HeadphoneConnectivityView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 24.0) {
             Text("Headphone Connectivity")
                 .font(.title2)
             HStack {

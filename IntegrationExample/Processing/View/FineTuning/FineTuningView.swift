@@ -17,14 +17,18 @@ struct FineTuningView: View {
     }
 
     var body: some View {
-        Picker("Fine Tuning", selection: $viewModel.selectedPreset) {
-            ForEach(viewModel.presets, id: \.self) { item in
-                Text(item.title).tag(Optional(item))
+        VStack(spacing: 24.0) {
+            Text("Fine-Tuning")
+                .font(.title2)
+            Picker("Fine Tuning", selection: $viewModel.selectedPreset) {
+                ForEach(viewModel.presets, id: \.self) { item in
+                    Text(item.title).tag(Optional(item))
+                }
             }
+            .onChange(of: viewModel.selectedPreset, perform: { newValue in
+                viewModel.selectedPresetChanged(newValue)
+            })
+            .pickerStyle(.segmented)
         }
-        .onChange(of: viewModel.selectedPreset, perform: { newValue in
-            viewModel.selectedPresetChanged(newValue)
-        })
-        .pickerStyle(.segmented)
     }
 }

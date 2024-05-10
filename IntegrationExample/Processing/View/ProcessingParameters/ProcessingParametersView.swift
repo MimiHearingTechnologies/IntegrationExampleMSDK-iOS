@@ -16,8 +16,8 @@ struct ProcessingParametersView: View {
     }
 
     var body: some View {
-        VStack(spacing: 32.0) {
-            Text("Mimi Processing Parameters")
+        VStack(spacing: 24.0) {
+            Text("Processing Parameters")
                 .font(.title2)
             HStack {
                 Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled },

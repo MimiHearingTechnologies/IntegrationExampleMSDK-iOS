@@ -203,8 +203,8 @@
 		BD7A05E7295F687800604BE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD8027912BEE39A700A2264F /* ProcessingParameters */,
 				BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */,
+				BD8027912BEE39A700A2264F /* ProcessingParameters */,
 				BD80BA8A2BEB629C00DC9C8A /* FineTuning */,
 				BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */,
 			);
@@ -232,9 +232,9 @@
 		BD80BA8A2BEB629C00DC9C8A /* FineTuning */ = {
 			isa = PBXGroup;
 			children = (
+				BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */,
 				BD80BA832BEB629C00DC9C8A /* FineTuningViewModel.swift */,
 				BD80BA842BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift */,
-				BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */,
 			);
 			path = FineTuning;
 			sourceTree = "<group>";
