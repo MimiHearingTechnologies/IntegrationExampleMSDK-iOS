@@ -10,66 +10,30 @@ import Combine
 import MimiCoreKit
 
 final class ProcessingViewModel: ObservableObject {
-    
-    @Published var isHeadphoneConnected: Bool
 
-    @Published var isSessionAvailable: Bool
     @Published var isEnabled: Bool = false
     @Published var intensity: Float = 0.0
     @Published var presetId: String?
     
     @Published var isUserLoggedIn: Bool
 
-    @Published var fineTuningViewModel: FineTuningViewModel?
-
-    private let core: MimiCore
-    private let headphoneConnectivity: PartnerHeadphoneConnectivityController
+    private let session: MimiProcessingSession
     
     private var cancellables = Set<AnyCancellable>()
-    
-    private var session: MimiProcessingSession? {
-        core.processing.session
-    }
 
     // MARK: - Init
 
-    init(core: MimiCore = .shared, headphoneConnectivity: PartnerHeadphoneConnectivityController) {
-        self.core = core
-        self.isSessionAvailable = core.processing.session != nil
+    init(session: MimiProcessingSession, auth: MimiAuthController) {
+        self.session = session
+        self.isUserLoggedIn = auth.currentUser != nil
 
-        self.isHeadphoneConnected = headphoneConnectivity.state.value != .disconnected
-        self.headphoneConnectivity = headphoneConnectivity
-
-        self.isUserLoggedIn = core.auth.currentUser != nil
-        core.auth.observable.addObserver(self)
-
-        subscribeToHeadphoneConnectivityState()
-        subscribeToProcessingSession()
+        auth.observable.addObserver(self)
+        subscribeToSessionParameterUpdates(session: session)
     }
 
-    // MARK: - Headpone connectivity
-
-    func simulateHeadphoneConnection(isConnected: Bool) {
-        headphoneConnectivity.simulateHeadphoneConnection(isConnected: isConnected)
-    }
+    
 
     // MARK: - Subscribers
-
-    private func subscribeToProcessingSession() {
-        core.processing.sessionPublisher
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] session in
-                guard let session else {
-                    self?.isSessionAvailable = false
-                    return
-                }
-
-                self?.isSessionAvailable = true
-                self?.subscribeToSessionParameterUpdates(session: session)
-                self?.fineTuningViewModel = FineTuningViewModel(presetParameter: session.preset)
-            }
-            .store(in: &cancellables)
-    }
 
     private func subscribeToSessionParameterUpdates(session: MimiProcessingSession) {
         session.isEnabled.valuePublisher
@@ -94,19 +58,7 @@ final class ProcessingViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    private func subscribeToHeadphoneConnectivityState() {
-        headphoneConnectivity.state
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] connectivityState in
-                switch connectivityState {
-                case .disconnected:
-                    self?.isHeadphoneConnected = false
-                case .connected:
-                    self?.isHeadphoneConnected = true
-                }
-            }
-            .store(in: &cancellables)
-    }
+    
 
     // MARK: - Parameter value application
 
@@ -116,7 +68,7 @@ final class ProcessingViewModel: ObservableObject {
         
         Task {
             do {
-                try await session?.isEnabled.apply(newValue)
+                try await session.isEnabled.apply(newValue)
             } catch {
                 await MainActor.run {
                     isEnabled = oldValue
@@ -131,7 +83,7 @@ final class ProcessingViewModel: ObservableObject {
         
         Task {
             do {
-                try await session?.intensity.apply(newValue)
+                try await session.intensity.apply(newValue)
             } catch {
                 await MainActor.run {
                     intensity = oldValue
@@ -143,7 +95,7 @@ final class ProcessingViewModel: ObservableObject {
     func reloadPreset() {
         Task {
             do {
-                try await session?.preset.load()
+                try await session.preset.load()
             } catch {
                 // handle error
             }

@@ -35,10 +35,6 @@ final class FineTuningViewModel: ObservableObject {
             }
         }
     }
-
-    deinit {
-        print("LOLOLOLOLO")
-    }
 }
 
 private extension FineTuningViewModel {
@@ -51,7 +47,7 @@ private extension FineTuningViewModel {
         upDownDataSource.bundlePublisher
             .combineLatest(preset.valuePublisher)
             .removeDuplicates(by: { $0 == $1 })
-            .receive(on: DispatchQueue.immediateWhenOnMainQueueScheduler)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] bundle, preset in
                 guard let preset else { return }
                 self?.handleUpDownDataSource(preset: preset, bundle: bundle)

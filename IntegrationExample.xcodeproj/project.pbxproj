@@ -17,10 +17,11 @@
 		BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */; };
 		BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */; };
 		BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */; };
+		BD80278E2BEE2DF300A2264F /* HeadphoneConnectivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */; };
+		BD8027902BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */; };
 		BD80BA8B2BEB629C00DC9C8A /* FineTuningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA832BEB629C00DC9C8A /* FineTuningViewModel.swift */; };
 		BD80BA8C2BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA842BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift */; };
 		BD80BA8E2BEB629C00DC9C8A /* FineTuningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */; };
-		BD80BA912BEB811800DC9C8A /* DispatchQueue+ImmediateWhenOnMainQueueScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA902BEB811800DC9C8A /* DispatchQueue+ImmediateWhenOnMainQueueScheduler.swift */; };
 		BDAA5D3E29694A5B0085D636 /* PartnerFirmwareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */; };
 		BDAA5D40296BC5790085D636 /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */; };
 		BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */; };
@@ -50,10 +51,11 @@
 		BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerAudioProcessingController.swift; sourceTree = "<group>"; };
 		BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneConnectivityView.swift; sourceTree = "<group>"; };
+		BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneConnectivityViewModel.swift; sourceTree = "<group>"; };
 		BD80BA832BEB629C00DC9C8A /* FineTuningViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineTuningViewModel.swift; sourceTree = "<group>"; };
 		BD80BA842BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FineTuningViewModel+FineTuningBundlePreset.swift"; sourceTree = "<group>"; };
 		BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineTuningView.swift; sourceTree = "<group>"; };
-		BD80BA902BEB811800DC9C8A /* DispatchQueue+ImmediateWhenOnMainQueueScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+ImmediateWhenOnMainQueueScheduler.swift"; sourceTree = "<group>"; };
 		BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerFirmwareController.swift; sourceTree = "<group>"; };
 		BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
 		BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimiProfileView.swift; sourceTree = "<group>"; };
@@ -127,7 +129,6 @@
 		BD325C472B84653A00C08401 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				BD80BA902BEB811800DC9C8A /* DispatchQueue+ImmediateWhenOnMainQueueScheduler.swift */,
 				2F55FB2A2B83C98A000D7543 /* DebouncedSlider.swift */,
 			);
 			path = Utilities;
@@ -200,11 +201,21 @@
 		BD7A05E7295F687800604BE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */,
 				BD80BA8A2BEB629C00DC9C8A /* FineTuning */,
 				BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */,
 				BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */,
+				BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */,
+			);
+			path = HeadphoneConnectivity;
 			sourceTree = "<group>";
 		};
 		BD80BA862BEB629C00DC9C8A /* Model */ = {
@@ -373,6 +384,7 @@
 				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
 				BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */,
 				BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */,
+				BD8027902BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift in Sources */,
 				2F55FB2B2B83C98A000D7543 /* DebouncedSlider.swift in Sources */,
 				BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */,
 				BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */,
@@ -382,9 +394,9 @@
 				BDAA5D3E29694A5B0085D636 /* PartnerFirmwareController.swift in Sources */,
 				BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */,
 				BD80BA8E2BEB629C00DC9C8A /* FineTuningView.swift in Sources */,
+				BD80278E2BEE2DF300A2264F /* HeadphoneConnectivityView.swift in Sources */,
 				BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */,
 				BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */,
-				BD80BA912BEB811800DC9C8A /* DispatchQueue+ImmediateWhenOnMainQueueScheduler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
