@@ -29,11 +29,11 @@ struct ContentView: View {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }
             
-            ProcessingView(viewModel: ProcessingViewModel(headphoneConnectivity: headphoneConnectivity))
+            ProcessingView(processing: MimiCore.shared.processing, auth: MimiCore.shared.auth, headphoneConnectivity: headphoneConnectivity)
                 .tabItem {
                     Label("Processing", systemImage: "waveform")
                 }
-            
+
             CoreView()
                 .tabItem {
                     Label("Core", systemImage: "wrench.and.screwdriver")

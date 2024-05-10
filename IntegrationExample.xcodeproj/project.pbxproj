@@ -17,8 +17,14 @@
 		BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */; };
 		BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */; };
 		BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */; };
+		BD80278E2BEE2DF300A2264F /* HeadphoneConnectivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */; };
+		BD8027902BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */; };
+		BD8027932BEE39BA00A2264F /* ProcessingParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027922BEE39BA00A2264F /* ProcessingParametersView.swift */; };
+		BD80BA8B2BEB629C00DC9C8A /* FineTuningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA832BEB629C00DC9C8A /* FineTuningViewModel.swift */; };
+		BD80BA8C2BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA842BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift */; };
+		BD80BA8E2BEB629C00DC9C8A /* FineTuningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */; };
 		BDAA5D3E29694A5B0085D636 /* PartnerFirmwareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */; };
-		BDAA5D40296BC5790085D636 /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */; };
+		BDAA5D40296BC5790085D636 /* ProcessingParametersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5D3F296BC5790085D636 /* ProcessingParametersViewModel.swift */; };
 		BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */; };
 		BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DAE295CBC8C001203EE /* IntegrationExampleApp.swift */; };
 		BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD305DB4295CBC8C001203EE /* ContentView.swift */; };
@@ -46,8 +52,14 @@
 		BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerAudioProcessingController.swift; sourceTree = "<group>"; };
 		BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneConnectivityView.swift; sourceTree = "<group>"; };
+		BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneConnectivityViewModel.swift; sourceTree = "<group>"; };
+		BD8027922BEE39BA00A2264F /* ProcessingParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingParametersView.swift; sourceTree = "<group>"; };
+		BD80BA832BEB629C00DC9C8A /* FineTuningViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineTuningViewModel.swift; sourceTree = "<group>"; };
+		BD80BA842BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FineTuningViewModel+FineTuningBundlePreset.swift"; sourceTree = "<group>"; };
+		BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineTuningView.swift; sourceTree = "<group>"; };
 		BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerFirmwareController.swift; sourceTree = "<group>"; };
-		BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
+		BDAA5D3F296BC5790085D636 /* ProcessingParametersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingParametersViewModel.swift; sourceTree = "<group>"; };
 		BDC31C0A295DC1DF002C7F65 /* MimiProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimiProfileView.swift; sourceTree = "<group>"; };
 		BDE098952A8E291000E6506D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Localizations/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BDE098972A8E296700E6506D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizations/en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -191,10 +203,40 @@
 		BD7A05E7295F687800604BE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */,
+				BD8027912BEE39A700A2264F /* ProcessingParameters */,
+				BD80BA8A2BEB629C00DC9C8A /* FineTuning */,
 				BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */,
-				BDAA5D3F296BC5790085D636 /* ProcessingViewModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */,
+				BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */,
+			);
+			path = HeadphoneConnectivity;
+			sourceTree = "<group>";
+		};
+		BD8027912BEE39A700A2264F /* ProcessingParameters */ = {
+			isa = PBXGroup;
+			children = (
+				BD8027922BEE39BA00A2264F /* ProcessingParametersView.swift */,
+				BDAA5D3F296BC5790085D636 /* ProcessingParametersViewModel.swift */,
+			);
+			path = ProcessingParameters;
+			sourceTree = "<group>";
+		};
+		BD80BA8A2BEB629C00DC9C8A /* FineTuning */ = {
+			isa = PBXGroup;
+			children = (
+				BD80BA872BEB629C00DC9C8A /* FineTuningView.swift */,
+				BD80BA832BEB629C00DC9C8A /* FineTuningViewModel.swift */,
+				BD80BA842BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift */,
+			);
+			path = FineTuning;
 			sourceTree = "<group>";
 		};
 		BDC31C09295DC1A3002C7F65 /* Profile */ = {
@@ -245,7 +287,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					BD457B15295C3E710000EE19 = {
 						CreatedOnToolsVersion = 14.1;
@@ -332,17 +374,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD3C1D7229D59AFF00062126 /* TestView.swift in Sources */,
-				BDAA5D40296BC5790085D636 /* ProcessingViewModel.swift in Sources */,
+				BDAA5D40296BC5790085D636 /* ProcessingParametersViewModel.swift in Sources */,
 				BD50801C2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift in Sources */,
 				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
 				BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */,
+				BD8027932BEE39BA00A2264F /* ProcessingParametersView.swift in Sources */,
 				BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */,
+				BD8027902BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift in Sources */,
 				2F55FB2B2B83C98A000D7543 /* DebouncedSlider.swift in Sources */,
 				BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */,
 				BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */,
+				BD80BA8B2BEB629C00DC9C8A /* FineTuningViewModel.swift in Sources */,
 				BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */,
+				BD80BA8C2BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift in Sources */,
 				BDAA5D3E29694A5B0085D636 /* PartnerFirmwareController.swift in Sources */,
 				BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */,
+				BD80BA8E2BEB629C00DC9C8A /* FineTuningView.swift in Sources */,
+				BD80278E2BEE2DF300A2264F /* HeadphoneConnectivityView.swift in Sources */,
 				BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */,
 				BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */,
 			);
@@ -387,6 +435,7 @@
 			baseConfigurationReference = BD305DA8295CAD00001203EE /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -450,6 +499,7 @@
 			baseConfigurationReference = BD305DA8295CAD00001203EE /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -528,7 +578,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.mimi.IntegrationExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -567,7 +617,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.mimi.IntegrationExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

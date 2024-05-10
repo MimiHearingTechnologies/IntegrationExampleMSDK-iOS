@@ -11,18 +11,25 @@ import MimiCoreKit
 
 struct ProcessingView: View {
 
-    @ObservedObject private var viewModel: ProcessingViewModel
+    @State private var session: MimiProcessingSession?
 
-    init(viewModel: ProcessingViewModel) {
-        self.viewModel = viewModel
+    let processing: MimiProcessingController
+    let auth: MimiAuthController
+    let headphoneConnectivity: PartnerHeadphoneConnectivityController
+
+    init(processing: MimiProcessingController, auth: MimiAuthController, headphoneConnectivity: PartnerHeadphoneConnectivityController) {
+        self.processing = processing
+        self.auth = auth
+        self.headphoneConnectivity = headphoneConnectivity
     }
 
     var body: some View {
-        VStack(spacing: 64) {
-            connectivityView
+        VStack(spacing: 48) {
+            HeadphoneConnectivityView(viewModel: HeadphoneConnectivityViewModel(headphoneConnectivity: headphoneConnectivity) )
 
-            if viewModel.isSessionAvailable {
-                parametersView
+            if let session {
+                ProcessingParametersView(viewModel: ProcessingParametersViewModel(session: session, auth: auth))
+                FineTuningView(viewModel: FineTuningViewModel(presetParameter: session.preset))
             } else {
                 Text("Mimi Processing Session Unavailable")
             }
@@ -30,60 +37,8 @@ struct ProcessingView: View {
         }
         .padding(.top, 40)
         .padding(.horizontal, 32)
-    }
-
-    private var connectivityView: some View {
-        VStack {
-            Text("Headphone Connectivity")
-                .font(.title2)
-            HStack {
-                Toggle("Headphones connected",
-                       isOn: Binding<Bool>(get: { viewModel.isHeadphoneConnected},
-                                           set: { viewModel.simulateHeadphoneConnection(isConnected: $0) }))
-            }
-        }
-    }
-
-    private var parametersView: some View {
-        VStack(spacing: 32.0) {
-            Text("Mimi Processing Parameters")
-                .font(.title2)
-            HStack {
-                Toggle("IsEnabled", isOn: Binding<Bool>(get: { viewModel.isEnabled },
-                                                        set: { viewModel.applyIsEnabled($0) }))
-            }
-            VStack(spacing: 4.0) {
-                HStack {
-                    Text("Intensity")
-                    Spacer()
-                    Text("\(viewModel.intensity)")
-                }
-                
-                DebouncedSlider(value: Binding<Float>(get: { viewModel.intensity },
-                                                      set: { viewModel.applyIntensity($0) })) {
-                    Text("Intensity")
-                } minimumValueLabel: {
-                    Text("0")
-                } maximumValueLabel: {
-                    Text("1")
-                }
-            }
-            VStack {
-                HStack {
-                    Text("Preset")
-                    Spacer()
-                    Text(viewModel.presetId ?? "nil")
-                        .font(.caption)
-                }
-                if viewModel.isUserLoggedIn {
-                    Button("Reload") {
-                        viewModel.reloadPreset()
-                    }
-                    .buttonStyle(.bordered)
-                } else {
-                    Text("⚠️ User not logged in")
-                }
-            }
-        }
+        .onReceive(processing.sessionPublisher.receive(on: DispatchQueue.main), perform: { session in
+            self.session = session
+        })
     }
 }
