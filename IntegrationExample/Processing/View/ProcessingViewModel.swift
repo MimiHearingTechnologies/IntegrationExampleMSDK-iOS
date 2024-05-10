@@ -19,7 +19,9 @@ final class ProcessingViewModel: ObservableObject {
     @Published var presetId: String?
     
     @Published var isUserLoggedIn: Bool
-    
+
+    @Published var fineTuningViewModel: FineTuningViewModel?
+
     private let core: MimiCore
     private let headphoneConnectivity: PartnerHeadphoneConnectivityController
     
@@ -64,6 +66,7 @@ final class ProcessingViewModel: ObservableObject {
 
                 self?.isSessionAvailable = true
                 self?.subscribeToSessionParameterUpdates(session: session)
+                self?.fineTuningViewModel = FineTuningViewModel(presetParameter: session.preset)
             }
             .store(in: &cancellables)
     }

@@ -23,6 +23,7 @@ struct ProcessingView: View {
 
             if viewModel.isSessionAvailable {
                 parametersView
+                FineTuningView(viewModel: viewModel.fineTuningViewModel!)
             } else {
                 Text("Mimi Processing Session Unavailable")
             }
@@ -32,6 +33,7 @@ struct ProcessingView: View {
         .padding(.horizontal, 32)
     }
 
+    @ViewBuilder
     private var connectivityView: some View {
         VStack {
             Text("Headphone Connectivity")
@@ -44,6 +46,7 @@ struct ProcessingView: View {
         }
     }
 
+    @ViewBuilder
     private var parametersView: some View {
         VStack(spacing: 32.0) {
             Text("Mimi Processing Parameters")

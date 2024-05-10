@@ -33,7 +33,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Processing", systemImage: "waveform")
                 }
-            
+
             CoreView()
                 .tabItem {
                     Label("Core", systemImage: "wrench.and.screwdriver")
