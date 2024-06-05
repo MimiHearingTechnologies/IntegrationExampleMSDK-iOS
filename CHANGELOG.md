@@ -38,3 +38,8 @@
 
 ## 5.1.1
 - Fix logging error on Xcode 15.3 on App launch
+
+## 5.2.0
+- Update MSDK to v10.1.2
+- Add custom Personalization Fine-Tuning implementation
+
