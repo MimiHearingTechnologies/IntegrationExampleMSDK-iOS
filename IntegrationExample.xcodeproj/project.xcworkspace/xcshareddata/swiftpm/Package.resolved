@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MimiHearingTechnologies/SDK-iOS-Binaries.git",
       "state" : {
-        "revision" : "202c7a3e5e061f929ce7eae6350fc00041ef06b2",
-        "version" : "10.1.2"
+        "revision" : "385fadfc0db53138d95cfdcbc0fed09d0a13fd13",
+        "version" : "10.1.3"
       }
     }
   ],
