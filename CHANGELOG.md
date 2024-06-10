@@ -43,3 +43,5 @@
 - Update MSDK to v10.1.2
 - Add custom Personalization Fine-Tuning implementation
 
+## 5.2.1
+- Update MSDK to v10.1.3

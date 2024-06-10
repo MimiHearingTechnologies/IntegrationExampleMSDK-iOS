@@ -5,7 +5,7 @@
 //  Created by Hozefa Indorewala on 30.12.22.
 //
 
-import Foundation
+import UIKit
 import MimiCoreKit
 import MimiUXKit
 import MimiSDK
