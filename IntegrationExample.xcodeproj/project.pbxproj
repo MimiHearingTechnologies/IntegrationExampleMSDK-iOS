@@ -193,22 +193,14 @@
 		BD7A05E2295EFD2100604BE9 /* Processing */ = {
 			isa = PBXGroup;
 			children = (
-				BD7A05E7295F687800604BE9 /* View */,
-				BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */,
-				BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */,
-			);
-			path = Processing;
-			sourceTree = "<group>";
-		};
-		BD7A05E7295F687800604BE9 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */,
 				BD8027912BEE39A700A2264F /* ProcessingParameters */,
 				BD80BA8A2BEB629C00DC9C8A /* FineTuning */,
 				BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */,
+				BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */,
+				BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */,
 			);
-			path = View;
+			path = Processing;
 			sourceTree = "<group>";
 		};
 		BD80278C2BEE2DDA00A2264F /* HeadphoneConnectivity */ = {
