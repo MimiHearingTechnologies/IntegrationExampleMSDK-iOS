@@ -51,3 +51,6 @@
 
 ## 5.3.0
 - Update MSDK to v10.3.0
+
+## 5.4.0
+- Update MSDK to v10.4.0
