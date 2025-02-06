@@ -650,8 +650,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MimiHearingTechnologies/SDK-iOS-Binaries.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				kind = exactVersion;
+				version = 10.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
