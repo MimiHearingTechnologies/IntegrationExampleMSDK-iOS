@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10B3B0F12B285A2A001934CB /* MimiSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 10B3B0F02B285A2A001934CB /* MimiSDK */; };
 		2F55FB2B2B83C98A000D7543 /* DebouncedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F55FB2A2B83C98A000D7543 /* DebouncedSlider.swift */; };
+		BD113C172D563D69005616C7 /* MimiSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BD113C162D563D69005616C7 /* MimiSDK */; };
 		BD305DB7295CBC8C001203EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD305DAF295CBC8C001203EE /* Assets.xcassets */; };
 		BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6829D5858B00062126 /* CoreView.swift */; };
 		BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6D29D599D600062126 /* TestViewModel.swift */; };
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10B3B0F12B285A2A001934CB /* MimiSDK in Frameworks */,
+				BD113C172D563D69005616C7 /* MimiSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +265,7 @@
 			);
 			name = IntegrationExample;
 			packageProductDependencies = (
-				10B3B0F02B285A2A001934CB /* MimiSDK */,
+				BD113C162D563D69005616C7 /* MimiSDK */,
 			);
 			productName = IntegrationExample;
 			productReference = BD457B16295C3E710000EE19 /* IntegrationExample.app */;
@@ -315,7 +315,7 @@
 			);
 			mainGroup = BD457B0D295C3E710000EE19;
 			packageReferences = (
-				10B3B0EC2B27C203001934CB /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */,
+				BD113C152D563D69005616C7 /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */,
 			);
 			productRefGroup = BD457B17295C3E710000EE19 /* Products */;
 			projectDirPath = "";
@@ -570,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.4.0;
+				MARKETING_VERSION = 5.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.mimi.IntegrationExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -609,7 +609,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.4.0;
+				MARKETING_VERSION = 5.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.mimi.IntegrationExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,9 +646,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		10B3B0EC2B27C203001934CB /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */ = {
+		BD113C152D563D69005616C7 /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MimiHearingTechnologies/SDK-iOS-Binaries.git";
+			repositoryURL = "https://github.com/MimiHearingTechnologies/SDK-iOS-Binaries";
 			requirement = {
 				kind = exactVersion;
 				version = 10.4.0;
@@ -657,9 +657,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		10B3B0F02B285A2A001934CB /* MimiSDK */ = {
+		BD113C162D563D69005616C7 /* MimiSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 10B3B0EC2B27C203001934CB /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */;
+			package = BD113C152D563D69005616C7 /* XCRemoteSwiftPackageReference "SDK-iOS-Binaries" */;
 			productName = MimiSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
