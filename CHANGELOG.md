@@ -57,3 +57,6 @@
 
 ## 5.4.1
 - Fix issue with update to MSDK v10.4.0
+
+## 5.5.0
+- Update MSDK to v10.5.0
