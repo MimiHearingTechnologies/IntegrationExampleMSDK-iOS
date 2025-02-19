@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import MimiCoreKit
 
 struct CoreView: View {
     var body: some View {
-        List {
-            Section(header: Text("Test")) {
-                TestView()
+        VStack {
+            List {
+                Section(header: Text("Test")) {
+                    TestView()
+                }
             }
+            Text("MimiCore version \(MimiCore.version)")
+                .font(.caption)
+                .padding(.bottom, 16.0)
         }
     }
 }
