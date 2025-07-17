@@ -60,3 +60,7 @@
 
 ## 5.5.0
 - Update MSDK to v10.5.0
+
+## 5.6.0
+- Add TestFlow tab to launch MimiTestFlow
+- Update MSDK to v10.7.0
