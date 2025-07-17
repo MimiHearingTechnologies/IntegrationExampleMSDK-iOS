@@ -28,7 +28,12 @@ struct ContentView: View {
                 .tabItem {
                     Label("Profile", systemImage: "platter.2.filled.iphone")
                 }
-            
+
+            TestFlowView()
+                .tabItem {
+                    Label("TestFlow", systemImage: "ear")
+                }
+
             ProcessingView(processing: MimiCore.shared.processing, auth: MimiCore.shared.auth, headphoneConnectivity: headphoneConnectivity)
                 .tabItem {
                     Label("Processing", systemImage: "waveform")

@@ -14,6 +14,9 @@
 		BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D6D29D599D600062126 /* TestViewModel.swift */; };
 		BD3C1D7229D59AFF00062126 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C1D7129D59AFF00062126 /* TestView.swift */; };
 		BD50801C2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50801B2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift */; };
+		BD5F90562E29172800AD31FA /* TestFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F90552E29172500AD31FA /* TestFlowView.swift */; };
+		BD5F90582E291E6300AD31FA /* TestFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F90572E291E5E00AD31FA /* TestFlowBuilder.swift */; };
+		BD5F905A2E2920EC00AD31FA /* WrappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F90592E2920E600AD31FA /* WrappedViewController.swift */; };
 		BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */; };
 		BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */; };
 		BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */; };
@@ -49,6 +52,9 @@
 		BD3C1D7129D59AFF00062126 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		BD457B16295C3E710000EE19 /* IntegrationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegrationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD50801B2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerHeadphoneConnectivityController.swift; sourceTree = "<group>"; };
+		BD5F90552E29172500AD31FA /* TestFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlowView.swift; sourceTree = "<group>"; };
+		BD5F90572E291E5E00AD31FA /* TestFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlowBuilder.swift; sourceTree = "<group>"; };
+		BD5F90592E2920E600AD31FA /* WrappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedViewController.swift; sourceTree = "<group>"; };
 		BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerAudioProcessingController.swift; sourceTree = "<group>"; };
 		BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				BD305DB4295CBC8C001203EE /* ContentView.swift */,
 				BDC31C09295DC1A3002C7F65 /* Profile */,
 				BD7A05E2295EFD2100604BE9 /* Processing */,
+				BD5F90542E28FE4E00AD31FA /* TestFlow */,
 				BD3C1D6729D5855E00062126 /* Core */,
 				BD325C472B84653A00C08401 /* Utilities */,
 				BD305DAC295CBC8C001203EE /* Generated */,
@@ -131,6 +138,7 @@
 		BD325C472B84653A00C08401 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BD5F90592E2920E600AD31FA /* WrappedViewController.swift */,
 				2F55FB2A2B83C98A000D7543 /* DebouncedSlider.swift */,
 			);
 			path = Utilities;
@@ -188,6 +196,15 @@
 				BD3C1D6C29D599BF00062126 /* Test */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BD5F90542E28FE4E00AD31FA /* TestFlow */ = {
+			isa = PBXGroup;
+			children = (
+				BD5F90552E29172500AD31FA /* TestFlowView.swift */,
+				BD5F90572E291E5E00AD31FA /* TestFlowBuilder.swift */,
+			);
+			path = TestFlow;
 			sourceTree = "<group>";
 		};
 		BD7A05E2295EFD2100604BE9 /* Processing */ = {
@@ -365,10 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD5F90562E29172800AD31FA /* TestFlowView.swift in Sources */,
 				BD3C1D7229D59AFF00062126 /* TestView.swift in Sources */,
 				BDAA5D40296BC5790085D636 /* ProcessingParametersViewModel.swift in Sources */,
 				BD50801C2A66994600971D55 /* PartnerHeadphoneConnectivityController.swift in Sources */,
 				BDC31C0B295DC1DF002C7F65 /* MimiProfileView.swift in Sources */,
+				BD5F90582E291E6300AD31FA /* TestFlowBuilder.swift in Sources */,
 				BDE4028B2993B40F008BFC0E /* AppSecrets.generated.swift in Sources */,
 				BD8027932BEE39BA00A2264F /* ProcessingParametersView.swift in Sources */,
 				BD3C1D6E29D599D600062126 /* TestViewModel.swift in Sources */,
@@ -384,6 +403,7 @@
 				BD80BA8E2BEB629C00DC9C8A /* FineTuningView.swift in Sources */,
 				BD80278E2BEE2DF300A2264F /* HeadphoneConnectivityView.swift in Sources */,
 				BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */,
+				BD5F905A2E2920EC00AD31FA /* WrappedViewController.swift in Sources */,
 				BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
