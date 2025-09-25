@@ -64,3 +64,7 @@
 ## 5.6.0
 - Add TestFlow tab to launch MimiTestFlow
 - Update MSDK to v10.7.0
+
+## 6.0.0
+- Update MSDK to v11.0.0
+- Migrate to MSDK v11.0.0
