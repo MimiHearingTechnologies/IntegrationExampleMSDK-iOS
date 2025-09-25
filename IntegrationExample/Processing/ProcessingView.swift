@@ -29,7 +29,9 @@ struct ProcessingView: View {
 
             if let session {
                 ProcessingParametersView(viewModel: ProcessingParametersViewModel(session: session, auth: auth))
-                FineTuningView(viewModel: FineTuningViewModel(presetParameter: session.preset))
+                if let preset = session.soundPersonalization?.media?.preset {
+                    FineTuningView(viewModel: FineTuningViewModel(presetParameter: preset))
+                }
             } else {
                 Text("Mimi Processing Session Unavailable")
             }

@@ -12,7 +12,7 @@ import MimiCoreKit
 final class ProcessingParametersViewModel: ObservableObject {
 
     @Published var isEnabled: Bool = false
-    @Published var intensity: Float = 0.0
+    @Published var intensity: Double = 0.0
     @Published var presetId: String?
     @Published var isUserLoggedIn: Bool
 
@@ -33,21 +33,21 @@ final class ProcessingParametersViewModel: ObservableObject {
     // MARK: - Subscribers
 
     private func subscribeToSessionParameterUpdates(session: MimiProcessingSession) {
-        session.isEnabled.valuePublisher
+        session.soundPersonalization?.media?.isEnabled.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.isEnabled = value
             }
             .store(in: &cancellables)
         
-        session.intensity.valuePublisher
+        session.soundPersonalization?.media?.intensity.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.intensity = value
             }
             .store(in: &cancellables)
         
-        session.preset.valuePublisher
+        session.soundPersonalization?.media?.preset.valuePublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.presetId = value?.id
@@ -63,7 +63,7 @@ final class ProcessingParametersViewModel: ObservableObject {
         
         Task {
             do {
-                try await session.isEnabled.apply(newValue)
+                try await session.soundPersonalization?.media?.isEnabled.apply(newValue)
             } catch {
                 await MainActor.run {
                     isEnabled = oldValue
@@ -72,13 +72,13 @@ final class ProcessingParametersViewModel: ObservableObject {
         }
     }
     
-    func applyIntensity(_ newValue: Float) {
+    func applyIntensity(_ newValue: Double) {
         let oldValue = intensity
         intensity = newValue
         
         Task {
             do {
-                try await session.intensity.apply(newValue)
+                try await session.soundPersonalization?.media?.intensity.apply(newValue)
             } catch {
                 await MainActor.run {
                     intensity = oldValue
@@ -90,7 +90,7 @@ final class ProcessingParametersViewModel: ObservableObject {
     func reloadPreset() {
         Task {
             do {
-                try await session.preset.load()
+                try await session.soundPersonalization?.media?.preset.load()
             } catch {
                 // handle error
             }
