@@ -18,7 +18,6 @@
 		BD5F90582E291E6300AD31FA /* TestFlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F90572E291E5E00AD31FA /* TestFlowBuilder.swift */; };
 		BD5F905A2E2920EC00AD31FA /* WrappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5F90592E2920E600AD31FA /* WrappedViewController.swift */; };
 		BD7A05E1295EEAF300604BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */; };
-		BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */; };
 		BD7A05E6295EFFC200604BE9 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */; };
 		BD80278E2BEE2DF300A2264F /* HeadphoneConnectivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */; };
 		BD8027902BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */; };
@@ -56,7 +55,6 @@
 		BD5F90572E291E5E00AD31FA /* TestFlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlowBuilder.swift; sourceTree = "<group>"; };
 		BD5F90592E2920E600AD31FA /* WrappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedViewController.swift; sourceTree = "<group>"; };
 		BD7A05E0295EEAF300604BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerAudioProcessingController.swift; sourceTree = "<group>"; };
 		BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		BD80278D2BEE2DF300A2264F /* HeadphoneConnectivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneConnectivityView.swift; sourceTree = "<group>"; };
 		BD80278F2BEE2E1C00A2264F /* HeadphoneConnectivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneConnectivityViewModel.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				BD8027912BEE39A700A2264F /* ProcessingParameters */,
 				BD80BA8A2BEB629C00DC9C8A /* FineTuning */,
 				BD7A05E5295EFFC200604BE9 /* ProcessingView.swift */,
-				BD7A05E3295EFF6200604BE9 /* PartnerAudioProcessingController.swift */,
 				BDAA5D3D29694A5B0085D636 /* PartnerFirmwareController.swift */,
 			);
 			path = Processing;
@@ -396,7 +393,6 @@
 				BDC31C0C295DC339002C7F65 /* IntegrationExampleApp.swift in Sources */,
 				BDC31C0D295DC33D002C7F65 /* ContentView.swift in Sources */,
 				BD80BA8B2BEB629C00DC9C8A /* FineTuningViewModel.swift in Sources */,
-				BD7A05E4295EFF6200604BE9 /* PartnerAudioProcessingController.swift in Sources */,
 				BD80BA8C2BEB629C00DC9C8A /* FineTuningViewModel+FineTuningBundlePreset.swift in Sources */,
 				BDAA5D3E29694A5B0085D636 /* PartnerFirmwareController.swift in Sources */,
 				BD3C1D6929D5858B00062126 /* CoreView.swift in Sources */,

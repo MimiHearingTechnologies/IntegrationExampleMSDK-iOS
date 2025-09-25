@@ -30,7 +30,7 @@ struct ProcessingParametersView: View {
                     Text("\(viewModel.intensity)")
                 }
 
-                DebouncedSlider(value: Binding<Float>(get: { viewModel.intensity },
+                DebouncedSlider(value: Binding<Double>(get: { viewModel.intensity },
                                                       set: { viewModel.applyIntensity($0) })) {
                     Text("Intensity")
                 } minimumValueLabel: {

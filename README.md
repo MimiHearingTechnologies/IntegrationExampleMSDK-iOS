@@ -29,7 +29,6 @@ The Example app demonstrates the standard integration of the Mimi Profile and th
 The code outlining the usage of the Mimi Processing APIs can be found under the `Processing` directory.
 
 - `PartnerFirmwareController` - A mock implementation of an object that communicates with the `Mimi Processing Library` on the Mimi enabled device's firmware.
-- `PartnerAudioProcessingController` - A mock audio processing controller which illustrates the usage of the Mimi Processing Parameter Applicators.
 - `PartnerHeadphoneConnectivityController` - A mock headphone connectivity controller which provides information on the currently connected headphone to the MSDK.
 - `ProcessingParametersView` & `ProcessingParametersViewModel` - These files illustrate the usage of the Mimi Processing Parameters.
 - `FineTuningView` & `FineTuningViewModel` - Custom Fine-Tuning implementation.

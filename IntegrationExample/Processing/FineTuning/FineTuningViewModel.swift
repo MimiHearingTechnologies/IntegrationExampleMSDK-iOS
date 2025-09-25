@@ -17,9 +17,9 @@ final class FineTuningViewModel: ObservableObject {
     private var lastAppliedPreset: FineTuningBundlePreset?
     private var cancellables = Set<AnyCancellable>()
 
-    private let preset: MimiProcessingParameter<MimiPersonalization.Preset?>
+    private let preset: any MimiProcessingParameter<MimiPersonalization.Preset?>
 
-    init(presetParameter: MimiProcessingParameter<MimiPersonalization.Preset?>) {
+    init(presetParameter: any MimiProcessingParameter<MimiPersonalization.Preset?>) {
         self.preset = presetParameter
         subscribeToSessionDataSource()
     }

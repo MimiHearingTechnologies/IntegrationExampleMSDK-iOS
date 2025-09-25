@@ -12,12 +12,8 @@ import MimiCoreKit
 struct ContentView: View {
     
     private let headphoneConnectivity: PartnerHeadphoneConnectivityController
-    private let mimiProfileConfiguration: MimiProfileConfiguration = {
-        // You can set `uiControlDebounceBehavior`, if you want to have a debounce behavior applied to the Processing UI controls on the Mimi Profile.
-        let debounceInterval = 0.1 // 100ms
-        return MimiProfileConfiguration(personalization: MimiPersonalizationConfiguration(uiControlDebounceBehavior: .debounce(seconds: debounceInterval)))
-    }()
-    
+    private let mimiProfileConfiguration = MimiProfileConfiguration()
+
     init(headphoneConnectivity: PartnerHeadphoneConnectivityController) {
         self.headphoneConnectivity = headphoneConnectivity
     }

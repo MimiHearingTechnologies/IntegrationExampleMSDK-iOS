@@ -15,7 +15,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
     let headphoneConnectivityController = PartnerHeadphoneConnectivityController()
     private let firmwareController: FirmwareControlling = PartnerFirmwareController()
-    private var audioProcessingController: PartnerAudioProcessingController!
 
     private var cancellables = Set<AnyCancellable>()
     
@@ -39,8 +38,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 case .connected:
                     Task {
                         do {
-                            let session = try await self.activateMimiProcessing(techLevel: self.firmwareController.getTechLevel())
-                            self.audioProcessingController = await PartnerAudioProcessingController(session: session, firmwareController: self.firmwareController)
+                            try await self.activateMimiProcessing(techLevel: self.firmwareController.getTechLevel())
                         } catch {
                             fatalError("Failed to launch Mimi Processing:  \(error.localizedDescription)")
                         }
@@ -72,21 +70,29 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         // For more documentation on this see: https://mimihearingtechnologies.github.io/SDKDocs-iOS/master/connected-headphone-identification.html
         MimiCore.shared.test.connectedHeadphoneProvider = headphoneConnectivityController
     }
-    
+
+    @discardableResult
     private func activateMimiProcessing(techLevel: Int) async throws -> MimiProcessingSession {
         let processing = MimiCore.shared.processing
         
         // In the following, the session is activated with processing configuration.
         let fitting = MimiPersonalization.Fitting.techLevel(techLevel)
-        let configuration = mimiProcessingConfiguration {
-                                Personalization {
-                                    // The FineTuning (which is the recommended option) mode provides (if available) a range of 3 presets - up, default & down.
-                                    FineTuning(fitting: fitting)
-                                    
-                                    // If only a Single Preset type of Personalization, is desired.
-                                    // SinglePreset(fitting: fitting)
-                                }
-                            }
+        let configuration = try MimiBasicProcessingConfiguration {
+            SoundPersonalization {
+                FineTuning(fitting: fitting)
+                Applicators {
+                    IsEnabled { [weak self] value in
+                        try await self?.firmwareController.setIsEnabled(value)
+                    }
+                    Intensity { [weak self] value in
+                        try await self?.firmwareController.setIntensity(Float(value))
+                    }
+                    Preset { [weak self] value in
+                        try await self?.firmwareController.setPreset(value)
+                    }
+                }
+            }
+        }
 
         return try await processing.activate(configuration: configuration)
     }
